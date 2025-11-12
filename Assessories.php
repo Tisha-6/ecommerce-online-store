@@ -2481,6 +2481,8 @@
                 </ul>
             </div>
 
+
+            
             <div class="footer-section newsletter">
                 <h3>Newsletter</h3>
                 
