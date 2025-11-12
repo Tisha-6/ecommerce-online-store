@@ -2647,7 +2647,7 @@
 
 
 
-    <!-- <footer class="footer">
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-section about">
                 <h2>Mens</h2>
@@ -2676,10 +2676,7 @@
 
             <div class="footer-section newsletter">
                 <h3>Newsletter</h3>
-                <form>
-                    <input type="email" placeholder="Your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+                
                 <div class="social-icons">
                     <a href="#"><img src="facebook-icon.svg" alt="Facebook"></a>
                     <a href="#"><img src="twitter-icon.svg" alt="Twitter"></a>
@@ -2692,7 +2689,7 @@
         <div class="footer-bottom">
             <p>&copy; 2025 ShopMate. All rights reserved.</p>
         </div>
-    </footer> -->
+    </footer>
 
     <!-- <* side bar java script -->
 

@@ -2064,10 +2064,7 @@
 
             <div class="footer-section newsletter">
                 <h3>Newsletter</h3>
-                <form>
-                    <input type="email" placeholder="Your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+                
                 <div class="social-icons">
                     <a href="#"><img src="facebook-icon.svg" alt="Facebook"></a>
                     <a href="#"><img src="twitter-icon.svg" alt="Twitter"></a>
