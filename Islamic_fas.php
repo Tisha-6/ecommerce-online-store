@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store | Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./Womens.php">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: rgb(255, 255, 255);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(90deg, rgb(57, 190, 202) 0%, rgb(23, 142, 182) 66%);
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .navvv {
+
+            border: 2px solid white;
+            background-color: rgb(44, 112, 104);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: black !important;
+            margin-left: 20px;
+            padding: 5px;
+        }
+
+        .nav-link {
+            color: black !important;
+            font-weight: 500;
+            margin-left: 20px;
+            padding: 5px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        /* ----------------- DROP DOWN CSS --------------------- */
+
+
+        /* Dropdown Menu Styling */
+        .dropdown-menu {
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            border: none;
+            min-width: 200px;
+            transition: all 0.2s ease-in-out;
+            z-index: 9999;
+            display: none;
+            /* Hide by default */
+            position: absolute;
+        }
+
+        /* Show dropdown on hover */
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Dropdown Items */
+        .dropdown-item {
+            padding: 10px 20px;
+            color: #333;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect: color + slight scale */
+        .dropdown-item:hover {
+            background-color: rgb(171, 231, 248);
+            color: rgb(54, 54, 55);
+            transform: scale(1.05);
+            border-radius: 5px;
+        }
+
+        /* Divider style */
+        .dropdown-divider {
+            margin: 5px 0;
+            border-color: #e0e0e0;
+        }
+
+        /* Navbar brand */
+        .navbar-brand {
+            font-weight: bold;
+            color: rgb(27, 26, 27) !important;
+        }
+
+        /* Navbar links */
+        .nav-link {
+            font-weight: 500;
+            color: #333 !important;
+        }
+
+        /* Navbar link hover */
+        .nav-link:hover {
+            color: rgb(255, 255, 255) !important;
+        }
+
+
+
+
+        /* -----------------------  PRODUCTS  CRADS CSSS --------------------- */
+
+        .main-container {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 20px;
+        }
+
+
+        /* Product Grid Styling */
+        .product-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        /* Product Card Styling */
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin: 15px 0 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .rating {
+            color: #f39c12;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .price-box {
+            margin: 10px 0;
+        }
+
+        .discount-price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2a9d8f;
+            margin-right: 10px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .delivery {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background-color: #2a9d8f;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 8px 10px; /* reduced padding */
+            font-size: 13px;  /* smaller text */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+            /* slightly smaller margin */
+        }
+
+        .btn-buy:hover {
+            background-color: #21867a;
+        }
+
+        @media (max-width: 992px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+
+        /* Side bar CSS */
+        .sidebar {
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            height: auto;
+            position: static;
+            top: 0;
+        }
+
+        .filter-group {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .filter-header {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+
+        .filter-content {
+            display: none;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+
+        .filter-content label {
+            display: block;
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .arrow {
+
+            transition: transform 0.3s ease;
+        }
+
+        .arrow img {
+
+            width: 25px;
+        }
+
+        .arrow.rotate {
+            transform: rotate(180deg);
+        }
+
+
+        .heading {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .heading h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .heading p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #777;
+        }
+
+
+        /*  -- this some lable css --- */
+
+
+        .lable h3 {
+
+            margin-top: 50px;
+            margin-left: 60px;
+        }
+
+
+
+
+
+
+
+
+
+        /* footer css */
+        .footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 40px 20px 10px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 15px;
+        }
+
+        .footer-section h3,
+        .footer-section h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-section .newsletter input[type="email"] {
+            padding: 10px;
+            width: 70%;
+            margin-right: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .footer-section .newsletter button {
+            padding: 10px 15px;
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .footer-section .social-icons a img {
+            width: 24px;
+            margin: 10px 5px 0 0;
+            filter: grayscale(1);
+            transition: filter 0.3s;
+        }
+
+        .footer-section .social-icons a img:hover {
+            filter: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">E-Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="cart.php">
+                            🛒 Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </li>
+
+
+                    <?php if (isset($_SESSION["user_id"])): ?>
+                        <li class="nav-item"><a class="nav-link" href="./auth/profile.php">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./auth/logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link" href="./auth/login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./auth/register.php">Register</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="navvv">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown m-1">
+                            <a class="nav-link dropdown-toggle" href="Womens.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Womens Ethnic
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="Sarees.php">Sarees</a></li>
+                                <li><a class="dropdown-item" href="Kurtis.php">Kurtis</a></li>
+                                <li><a class="dropdown-item" href="Lehenga.php">Lehenga Choli</a></li>
+                                <li><a class="dropdown-item" href="Suits.php">Suits & Dress Material</a></li>
+                                <li><a class="dropdown-item" href="Kurta_sets.php">Kurta Sets</a></li>
+                                <li><a class="dropdown-item" href="Islamic_fas.php">Islamic </a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="Jewellary.php">Jewellery</a></li>
+                        </li>
+
+                    </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mens
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Top_w_m.php">Top Wear</a></li>
+                            <li><a class="dropdown-item" href="Bottom_w_m.php">Bottom Wear</a></li>
+                            <li><a class="dropdown-item" href="Men_as.php">Men Accessories</a></li>
+                            <li><a class="dropdown-item" href="Ethnic.php">Ethnic Wear</a></li>
+                            <li><a class="dropdown-item" href="Inner.php">Inner & Sleep Wear</a></li>
+                            <li><a class="dropdown-item" href="Men_foo.php">Men Footwear </a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Kids
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Babys.php">Boys & Girls 2+ Years</a></li>
+                            <li><a class="dropdown-item" href="Infant.php">Infant 0-2 Years</a></li>
+                            <li><a class="dropdown-item" href="Assessories.php">Accessories</a></li>
+                            <li><a class="dropdown-item" href="Baby_care.php">Baby Care</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Home & Kitchen
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Kitchen.php">Kitchen & Appliances</a></li>
+                            <li><a class="dropdown-item" href="Home.php">Home Furnishing</a></li>
+                            <li><a class="dropdown-item" href="Ho_decor.php">Home Decor</a></li>
+                            <li><a class="dropdown-item" href="Dining.php">Kitchen & Dining</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Beauty
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Make_up.php">Make Up</a></li>
+                            <li><a class="dropdown-item" href="Skin.care.php">SkinCare</a></li>
+                            <li><a class="dropdown-item" href="B_mom.php">Baby & Mom</a></li>
+                            <li><a class="dropdown-item" href="Mens_care.php">MensCare</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bags
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Hand_bags.php">Hand Bags</a></li>
+                            <li><a class="dropdown-item" href="School_bags.php">School Bags</a></li>
+                            <li><a class="dropdown-item" href="Sling_bags.php">Sling Bags</a></li>
+                            <li><a class="dropdown-item" href="Backpacks.php">Backpacks</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="Waist_bag.php">Waist Bags</a></li>
+                    </li>
+
+                    </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronic
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Headphones.php">Headphones</a></li>
+                            <li><a class="dropdown-item" href="Speakers.php">Speakers</a></li>
+                            <li><a class="dropdown-item" href="Smart_wa.php">Smartwatches</a></li>
+                            <li><a class="dropdown-item" href="Mobile_ho.php">Mobile Holders</a></li>
+                            <li><a class="dropdown-item" href="Mobil_cha.php">Mobile Chargers</a></li>
+                            <li><a class="dropdown-item" href="Mobile_co.php">Mobile cases and covers</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="Smart_we.php">Smart Wearables</a></li>
+                    </li>
+
+                    </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Footwear
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Men_foo.php">Men Footwear</a></li>
+                            <li><a class="dropdown-item" href="wome_fo.php">Womens Footwear</a></li>
+                            <li><a class="dropdown-item" href="Kids_foo.php">Kids Footwear</a></li>
+
+
+
+                        </ul>
+                    </li>
+
+
+
+                    </ul>
+        </nav>
+    </div>
+
+
+
+
+
+    <!-- label -->
+
+    <div class="lable">
+        <h3>Islamic </h4>
+    </div>
+
+
+
+    <div class="main-container">
+
+        <div class="sidebar">
+
+            <!-- Heading -->
+            <div class="heading">
+                <h3>FILTERS</h3>
+                <p>Showing 21-40 out of 10000 products</p>
+            </div>
+
+
+            <!-- Sort By -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Sort By
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="radio" name="sort" checked> Relevance</label>
+                    <label><input type="radio" name="sort"> Price: Low to High</label>
+                    <label><input type="radio" name="sort"> Price: High to Low</label>
+                    <label><input type="radio" name="sort"> Newest First</label>
+                </div>
+            </div>
+
+            <!-- Category -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Category
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> Abaya</label>
+                </div>
+            </div>
+
+            <!-- Gender -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Gender
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> Women</label>
+                </div>
+            </div>
+
+            <!-- Color -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Color
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> Blue</label>
+                    <label><input type="checkbox"> Black</label>
+                    <label><input type="checkbox"> White</label>
+                    <label><input type="checkbox"> Beige</label>
+                    <label><input type="checkbox"> Brown</label>
+                    <label><input type="checkbox"> Grey</label>
+                    <label><input type="checkbox"> Marron</label>
+                    <label><input type="checkbox"> Pink</label>
+                    <label><input type="checkbox"> Multicolor</label>
+
+                </div>
+            </div>
+
+            <!-- Filter: Fabric -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Fabric
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> Cotton</label>
+                    <label><input type="checkbox"> Silk</label>
+                    <label><input type="checkbox"> Georgette</label>
+                    <label><input type="checkbox"> Rayon</label>
+                    <label><input type="checkbox"> Chiffon</label>
+                    <label><input type="checkbox"> Nylon</label>
+
+                </div>
+            </div>
+
+
+            <!-- Discount -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Discount
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> 10% or more</label>
+                    <label><input type="checkbox"> 25% or more</label>
+                    <label><input type="checkbox"> 50% or more</label>
+                    <label><input type="checkbox"> 70% or more</label>
+                </div>
+            </div>
+
+            <!-- Rating -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Rating
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> 4★ & above</label>
+                    <label><input type="checkbox"> 3★ & above</label>
+                    <label><input type="checkbox"> 2★ & above</label>
+                    <label><input type="checkbox"> 1★ & above</label>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- FIRST PRODUCTS CARDS -->
+
+        <div class="product-grid">
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="383"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/1_cl.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹383</span>
+                    <span class="original-price">₹429</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="452"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/2_i.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Abayas & coats</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹452</span>
+                    <span class="original-price">₹489</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="grey"
+                data-price="321"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/3_is.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy women Muslim </h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹321</span>
+                    <span class="original-price">₹359</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="grey"
+                data-price="433"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/4_wo.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹433</span>
+                    <span class="original-price">₹469</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="white"
+                data-price="253"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/5-w.webp" alt="Product Image"></a>
+                <h4 class="product-title">Latest Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹253</span>
+                    <span class="original-price">₹309</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="brown"
+                data-price="452"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/6-w.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fabuluos Women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹452</span>
+                    <span class="original-price">₹500</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="brown"
+                data-price="321"
+                data-discount="50"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/7-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Gracful Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹321</span>
+                    <span class="original-price">₹409</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="pruple"
+                data-price="423"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/8-.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹423</span>
+                    <span class="original-price">₹459</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="blue"
+                data-price="324"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/9-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Style women mulism</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹324</span>
+                    <span class="original-price">₹339</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="blue"
+                data-price="321"
+                data-discount="22"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/10-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹321</span>
+                    <span class="original-price">₹349</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="black"
+                data-price="406"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/11-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹406</span>
+                    <span class="original-price">₹449</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="blue"
+                data-price="542"
+                data-discount="15"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/12-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹542</span>
+                    <span class="original-price">₹569</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="grey"
+                data-price="412"
+                data-discount="32"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/13-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹412</span>
+                    <span class="original-price">₹431</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="blue"
+                data-price="365"
+                data-discount="44"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/14-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Comfy women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹365</span>
+                    <span class="original-price">₹399</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="black"
+                data-price="124"
+                data-discount="45"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/15-.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹124</span>
+                    <span class="original-price">₹189</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="black"
+                data-price="383"
+                data-discount="22"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/16-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy fabulous women</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹383</span>
+                    <span class="original-price">₹401</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="brown"
+                data-price="354"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/17-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Abayas</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹354</span>
+                    <span class="original-price">₹49</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="brown"
+                data-price="500"
+                data-discount="32"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/18-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Stylus women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹500</span>
+                    <span class="original-price">₹429</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="pink"
+                data-price="352"
+                data-discount="25"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/19-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹352</span>
+                    <span class="original-price">₹389</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="black"
+                data-price="432"
+                data-discount="22"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/20-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹432</span>
+                    <span class="original-price">₹481</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="blue"
+                data-price="132"
+                data-discount="16"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/21-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Comfy women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹132</span>
+                    <span class="original-price">₹196</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="black"
+                data-price="383"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/22-.webp" alt="Product Image"></a>
+                <h4 class="product-title">ready to wear ismalmic</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹530</span>
+                    <span class="original-price">₹429</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="pruple"
+                data-price="213"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/23-..webp" alt="Product Image"></a>
+                <h4 class="product-title">Graceful women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹213</span>
+                    <span class="original-price">₹249</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="328"
+                data-discount="55"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/24-..webp" alt="Product Image"></a>
+                <h4 class="product-title">styleus women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹323</span>
+                    <span class="original-price">₹409</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="pruple"
+                data-price="581"
+                data-discount="9"
+                data-rating="5"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/25-..webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulism</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹581</span>
+                    <span class="original-price">₹600</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="black"
+                data-price="381"
+                data-discount="39"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/26-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy women mulism</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹381</span>
+                    <span class="original-price">₹421</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="blue"
+                data-price="322"
+                data-discount="21"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/27-.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹322</span>
+                    <span class="original-price">₹400</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="pink"
+                data-price="398"
+                data-discount="45"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/28.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹398</span>
+                    <span class="original-price">₹417</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="black"
+                data-price="381"
+                data-discount="31"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/29-.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chador women mulism</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹381</span>
+                    <span class="original-price">₹421</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="brown"
+                data-price="541"
+                data-discount="77"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/30.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy hijab </h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹541</span>
+                    <span class="original-price">₹579</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="pruple"
+                data-price="353"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/31.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹353</span>
+                    <span class="original-price">₹409</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="grey"
+                data-price="403"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/32.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹403</span>
+                    <span class="original-price">₹439</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="pink"
+                data-price="523"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/33.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹523</span>
+                    <span class="original-price">₹579</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="pink"
+                data-price="483"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/34.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹483</span>
+                    <span class="original-price">₹502</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="white"
+                data-price="283"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/35.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹283</span>
+                    <span class="original-price">₹329</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="brown"
+                data-price="325"
+                data-discount="23"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/36.webp" alt="Product Image"></a>
+                <h4 class="product-title">Style women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹325</span>
+                    <span class="original-price">₹419</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="pink"
+                data-price="368"
+                data-discount="21"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/37.webp" alt="Product Image"></a>
+                <h4 class="product-title">Graceful women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹368</span>
+                    <span class="original-price">₹401</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="blue"
+                data-price="369"
+                data-discount="32"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/38.webp" alt="Product Image"></a>
+                <h4 class="product-title">trendy fabluous mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹369</span>
+                    <span class="original-price">₹410</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="pink"
+                data-price="357"
+                data-discount="41"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/39.webp" alt="Product Image"></a>
+                <h4 class="product-title">Comfy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹357</span>
+                    <span class="original-price">₹400</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="black"
+                data-price="383"
+                data-discount="14"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/40.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹383</span>
+                    <span class="original-price">₹400</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="pink"
+                data-price="583"
+                data-discount="53"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/41.webp" alt="Product Image"></a>
+                <h4 class="product-title">lastest women milsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹583</span>
+                    <span class="original-price">₹629</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nlyon"
+                data-color="beige"
+                data-price="384"
+                data-discount="14"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/42.webp" alt="Product Image"></a>
+                <h4 class="product-title">Graceful women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹384</span>
+                    <span class="original-price">₹422</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="white"
+                data-price="234"
+                data-discount="5"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/43.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹234</span>
+                    <span class="original-price">₹259</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="514"
+                data-discount="43"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/44.webp" alt="Product Image"></a>
+                <h4 class="product-title">Tenrdy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹514</span>
+                    <span class="original-price">₹540</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="pruple"
+                data-price="368"
+                data-discount="33"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/45.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy women mulsim </h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹368</span>
+                    <span class="original-price">₹419</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="black"
+                data-price="364"
+                data-discount="22"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/46.webp" alt="Product Image"></a>
+                <h4 class="product-title">Styles women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹364</span>
+                    <span class="original-price">₹403</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="blue"
+                data-price="125"
+                data-discount="24"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/47.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹125</span>
+                    <span class="original-price">₹185</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="blue"
+                data-price="383"
+                data-discount="21"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/48.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classis women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹383</span>
+                    <span class="original-price">₹429</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="black"
+                data-price="483"
+                data-discount="26"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/49.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹483</span>
+                    <span class="original-price">₹500</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="black"
+                data-price="387"
+                data-discount="44"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/50.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹387</span>
+                    <span class="original-price">₹421</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="black"
+                data-price="452"
+                data-discount="34"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/51.webp" alt="Product Image"></a>
+                <h4 class="product-title">Greceful women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹452</span>
+                    <span class="original-price">₹499</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="pink"
+                data-price="383"
+                data-discount="25"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/52.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹383</span>
+                    <span class="original-price">₹449</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="black"
+                data-price="504"
+                data-discount="38"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/53.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹504</span>
+                    <span class="original-price">₹539</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="pruple"
+                data-price="402"
+                data-discount="23"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/54.webp" alt="Product Image"></a>
+                <h4 class="product-title">Comfy women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹402</span>
+                    <span class="original-price">₹439</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="green"
+                data-price="325"
+                data-discount="27"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/55.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹325</span>
+                    <span class="original-price">₹384</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="green"
+                data-price="197"
+                data-discount="35"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/56.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹197</span>
+                    <span class="original-price">₹203</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="pruple"
+                data-price="387"
+                data-discount="38"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/57.webp" alt="Product Image"></a>
+                <h4 class="product-title">Greceful women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹387</span>
+                    <span class="original-price">₹425</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="pink"
+                data-price="520"
+                data-discount="38"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/58.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹520</span>
+                    <span class="original-price">₹569</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="blue"
+                data-price="444"
+                data-discount="46"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/59.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹444</span>
+                    <span class="original-price">₹489</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="pruple"
+                data-price="582"
+                data-discount="24"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/60.webp" alt="Product Image"></a>
+                <h4 class="product-title">Grecful women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹580</span>
+                    <span class="original-price">₹600</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="multicolor"
+                data-price="420"
+                data-discount="28"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/61.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹420</span>
+                    <span class="original-price">₹449</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="multicolor"
+                data-price="421"
+                data-discount="32"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/62.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹421</span>
+                    <span class="original-price">₹445</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="blue"
+                data-price="248"
+                data-discount="24"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/63.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹248</span>
+                    <span class="original-price">₹300</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="marron"
+                data-price="352"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/64.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹352</span>
+                    <span class="original-price">₹406</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="black"
+                data-price="246"
+                data-discount="32"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/65.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Abayas Coats</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹246</span>
+                    <span class="original-price">₹329</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="452"
+                data-discount="64"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/66.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern tendy Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹452</span>
+                    <span class="original-price">₹489</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="black"
+                data-price="396"
+                data-discount="35"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/67.webp" alt="Product Image"></a>
+                <h4 class="product-title">New fancy Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹396</span>
+                    <span class="original-price">₹429</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="black"
+                data-price="285"
+                data-discount="28"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/68.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy Trendy mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹285</span>
+                    <span class="original-price">₹329</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="black"
+                data-price="471"
+                data-discount="49"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/69.webp" alt="Product Image"></a>
+                <h4 class="product-title">Style women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹471</span>
+                    <span class="original-price">₹509</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="black"
+                data-price="141"
+                data-discount="38"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/70.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹141</span>
+                    <span class="original-price">₹229</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="black"
+                data-price="258"
+                data-discount="17"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/71.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹258</span>
+                    <span class="original-price">₹329</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="grey"
+                data-price="363"
+                data-discount="28"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/72.webp" alt="Product Image"></a>
+                <h4 class="product-title">Comfy new muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹363</span>
+                    <span class="original-price">₹429</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="blue"
+                data-price="515"
+                data-discount="45"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/73.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹515</span>
+                    <span class="original-price">₹549</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="blue"
+                data-price="415"
+                data-discount="35"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/74.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy new muslim </h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹415</span>
+                    <span class="original-price">₹439</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="315"
+                data-discount="25"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/75.webp" alt="Product Image"></a>
+                <h4 class="product-title">Style women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹315</span>
+                    <span class="original-price">₹339</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="pruple"
+                data-price="215"
+                data-discount="5"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/76.webp" alt="Product Image"></a>
+                <h4 class="product-title">Comfy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹215</span>
+                    <span class="original-price">₹329</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="pruple"
+                data-price="500"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/77.webp" alt="Product Image"></a>
+                <h4 class="product-title">New Graceful Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹500</span>
+                    <span class="original-price">₹429</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="pruple"
+                data-price="300"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/78.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy Trendy Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹300</span>
+                    <span class="original-price">₹329</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="beige"
+                data-price="200"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/79.webp" alt="Product Image"></a>
+                <h4 class="product-title">Style women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹200</span>
+                    <span class="original-price">₹329</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="beige"
+                data-price="400"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/80.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic New mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹400</span>
+                    <span class="original-price">₹429</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="black"
+                data-price="222"
+                data-discount="18"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/81.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern New Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹222</span>
+                    <span class="original-price">₹299</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="beige"
+                data-price="460"
+                data-discount="16"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/82.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹460</span>
+                    <span class="original-price">₹499</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="beige"
+                data-price="354"
+                data-discount="29"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/83.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹354</span>
+                    <span class="original-price">₹400</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="blue"
+                data-price="324"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/84.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹324</span>
+                    <span class="original-price">₹369</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="264"
+                data-discount="42"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/85.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic new women</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹264</span>
+                    <span class="original-price">₹300</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="pruple"
+                data-price="313"
+                data-discount="70"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/86.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹313</span>
+                    <span class="original-price">₹419</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="black"
+                data-price="365"
+                data-discount="21"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/87.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹365</span>
+                    <span class="original-price">₹400</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="black"
+                data-price="583"
+                data-discount="17"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/88.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Trendy Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹583</span>
+                    <span class="original-price">₹599</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="grey"
+                data-price="383"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/89.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹383</span>
+                    <span class="original-price">₹429</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="blue"
+                data-price="142"
+                data-discount="34"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/90.webp" alt="Product Image"></a>
+                <h4 class="product-title">New grecful women</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹142</span>
+                    <span class="original-price">₹180</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="21"
+                data-price="340"
+                data-discount="34"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/91.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹340</span>
+                    <span class="original-price">₹390</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="black"
+                data-price="236"
+                data-discount="24"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/92.webp" alt="Product Image"></a>
+                <h4 class="product-title">New Trendy women</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹236</span>
+                    <span class="original-price">₹286</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="514"
+                data-discount="31"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/93.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Trendy Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹514</span>
+                    <span class="original-price">₹539</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="black"
+                data-price="213"
+                data-discount="14"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/94.webp" alt="Product Image"></a>
+                <h4 class="product-title">Grecful women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹213</span>
+                    <span class="original-price">₹309</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="444"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/95.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹444</span>
+                    <span class="original-price">₹498</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+            <div class="product-card"
+                data-fabric="nylon"
+                data-color="blue"
+                data-price="401"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/96.webp" alt="Product Image"></a>
+                <h4 class="product-title">Modern Women Muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹401</span>
+                    <span class="original-price">₹460</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="beige"
+                data-price="343"
+                data-discount="31"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/97.webp" alt="Product Image"></a>
+                <h4 class="product-title">Style women muslim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹343</span>
+                    <span class="original-price">₹409</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="marron"
+                data-price="333"
+                data-discount="11"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/98.webp" alt="Product Image"></a>
+                <h4 class="product-title">New women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹333</span>
+                    <span class="original-price">₹399</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="black"
+                data-price="353"
+                data-discount="28"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/99.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹353</span>
+                    <span class="original-price">₹401</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="beige"
+                data-price="421"
+                data-discount="15"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/islamic/100.webp" alt="Product Image"></a>
+                <h4 class="product-title">Classic women mulsim</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹421</span>
+                    <span class="original-price">₹469</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- limit  -->
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+
+
+
+    <!-- <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Mens</h2>
+                <p>Your one-stop shop for all your needs. Trusted by thousands worldwide.</p>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section support">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="/faq">FAQs</a></li>
+                    <li><a href="/returns">Returns</a></li>
+                    <li><a href="/shipping">Shipping</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#"><img src="twitter-icon.svg" alt="Twitter"></a>
+                    <a href="#"><img src="instagram-icon.svg" alt="Instagram"></a>
+                    <a href="#"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 ShopMate. All rights reserved.</p>
+        </div>
+    </footer> -->
+
+    <!-- <* side bar java script -->
+
+    <script>
+        function toggleFilter(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow');
+            const isOpen = content.style.display === 'block';
+            content.style.display = isOpen ? 'none' : 'block';
+            arrow.classList.toggle('rotate', !isOpen);
+        }
+    </script>
+
+    <!-- side bar *> -->
+
+
+
+
+    <script>
+        document.querySelectorAll('.dropdown-toggle-side').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dropdown = this.nextElementSibling;
+                const isVisible = dropdown.style.display === 'block';
+
+                // Close others
+                document.querySelectorAll('.dropdown-menu-side').forEach(menu => menu.style.display = 'none');
+                document.querySelectorAll('.dropdown-toggle-side').forEach(btn => btn.classList.remove('active'));
+
+                // Toggle this
+                if (!isVisible) {
+                    dropdown.style.display = 'block';
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        window.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu-side').forEach(menu => menu.style.display = 'none');
+            document.querySelectorAll('.dropdown-toggle-side').forEach(btn => btn.classList.remove('active'));
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // Toggle dropdown menu on click
+        document.querySelectorAll('.dropdown-toggle-side').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation(); // prevent bubbling to window
+                const dropdown = this.nextElementSibling;
+                const isVisible = dropdown.style.display === 'block';
+
+                // Close all dropdowns first
+                document.querySelectorAll('.dropdown-menu-side').forEach(menu => {
+                    menu.style.display = 'none';
+                });
+
+                // Toggle this one
+                dropdown.style.display = isVisible ? 'none' : 'block';
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        window.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu-side').forEach(menu => {
+                menu.style.display = 'none';
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+
+
+<script>
+    const checkboxes = document.querySelectorAll('.filter-content input[type="checkbox"]');
+    const radios = document.querySelectorAll('.filter-content input[type="radio"]');
+    const productCards = document.querySelectorAll('.product-card');
+    const grid = document.querySelector('.product-grid');
+
+    function filterAndSortProducts() {
+        let fabrics = [];
+        let colors = [];
+        let discounts = [];
+        let ratings = [];
+        let genders = [];
+        let selectedSort = document.querySelector('input[name="sort"]:checked')?.nextSibling.nodeValue.trim();
+
+        checkboxes.forEach(cb => {
+            if (cb.checked) {
+                const label = cb.parentElement.textContent.trim().toLowerCase();
+
+                if (['cotton', 'silk', 'linen', 'georgette', 'art silk', 'net', 'rayon', 'chiffon', 'jute cotton', 'nylon'].includes(label)) {
+                    fabrics.push(label);
+                } else if (['red', 'blue', 'green', 'black', 'white', 'beige', 'brown', 'grey', 'marron', 'pink', 'orange', 'sliver', 'multicolor', 'pruple', 'yellow'].includes(label)) {
+                    colors.push(label);
+                } else if (label.includes('% or more')) {
+                    discounts.push(parseInt(label));
+                } else if (label.includes('★')) {
+                    ratings.push(parseInt(label));
+                } else if (['men', 'women', 'girls'].includes(label)) {
+                    genders.push(label);
+                }
+
+            }
+        });
+
+        let filtered = Array.from(productCards).filter(card => {
+            const fabric = card.dataset.fabric?.toLowerCase();
+            const color = card.dataset.color?.toLowerCase();
+            const price = parseFloat(card.dataset.price);
+            const discount = parseFloat(card.dataset.discount);
+            const rating = parseFloat(card.dataset.rating);
+
+            const fabricMatch = fabrics.length === 0 || fabrics.includes(fabric);
+            const colorMatch = colors.length === 0 || colors.includes(color);
+            const discountMatch = discounts.length === 0 || discounts.some(d => discount >= d);
+            const ratingMatch = ratings.length === 0 || ratings.some(r => rating >= r);
+            const gender = card.dataset.gender?.toLowerCase();
+            const genderMatch = genders.length === 0 || genders.includes(gender);
+
+            return fabricMatch && colorMatch && discountMatch && ratingMatch && genderMatch;
+        });
+
+        // Sorting
+        if (selectedSort === 'Price: Low to High') {
+            filtered.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+        } else if (selectedSort === 'Price: High to Low') {
+            filtered.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+        }
+
+        grid.innerHTML = '';
+        filtered.forEach(card => grid.appendChild(card));
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener('change', filterAndSortProducts));
+    radios.forEach(rb => rb.addEventListener('change', filterAndSortProducts));
+</script>
+
+
+</html>

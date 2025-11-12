@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart 🛒 (<span id="cart-count">0</span>)</a>
+  </nav>
+
+  <h1>Our Products</h1>
+
+  <div class="product-list">
+    <div class="product" data-id="1" data-name="T-shirt" data-price="20">
+      <h3>T-shirt</h3>
+      <p>$20.00</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="product" data-id="2" data-name="Shoes" data-price="50">
+      <h3>Shoes</h3>
+      <p>$50.00</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="product" data-id="3" data-name="Hat" data-price="15">
+      <h3>Hat</h3>
+      <p>$15.00</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+</body>
+</html>

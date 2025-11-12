@@ -1,0 +1,4456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store | Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./Womens.php">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(90deg, rgb(57, 190, 202) 0%, rgb(23, 142, 182) 66%);
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .navvv {
+
+            border: 2px solid white;
+            background-color: rgb(44, 112, 104);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: black !important;
+            margin-left: 20px;
+            padding: 5px;
+        }
+
+        .nav-link {
+            color: black !important;
+            font-weight: 500;
+            margin-left: 20px;
+            padding: 5px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+
+        /* ------------------ DROP DOWN NAVBAR CSS ----------------- */
+
+
+        /* Dropdown Menu Styling */
+        .dropdown-menu {
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            border: none;
+            min-width: 200px;
+            transition: all 0.2s ease-in-out;
+            z-index: 9999;
+            display: none;
+            /* Hide by default */
+            position: absolute;
+        }
+
+        /* Show dropdown on hover */
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Dropdown Items */
+        .dropdown-item {
+            padding: 10px 20px;
+            color: #333;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect: color + slight scale */
+        .dropdown-item:hover {
+            background-color: rgb(171, 231, 248);
+            color: rgb(54, 54, 55);
+            transform: scale(1.05);
+            border-radius: 5px;
+        }
+
+        /* Divider style */
+        .dropdown-divider {
+            margin: 5px 0;
+            border-color: #e0e0e0;
+        }
+
+        /* Navbar brand */
+        .navbar-brand {
+            font-weight: bold;
+            color: rgb(27, 26, 27) !important;
+        }
+
+        /* Navbar links */
+        .nav-link {
+            font-weight: 500;
+            color: #333 !important;
+        }
+
+        /* Navbar link hover */
+        .nav-link:hover {
+            color: rgb(255, 255, 255) !important;
+        }
+
+
+
+        /* -----------------------  PRODUCTS  CRADS CSSS --------------------- */
+
+        .main-container {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 20px;
+        }
+
+
+        /* Product Grid Styling */
+        .product-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        /* Product Card Styling */
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin: 15px 0 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .rating {
+            color: #f39c12;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .price-box {
+            margin: 10px 0;
+        }
+
+        .discount-price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2a9d8f;
+            margin-right: 10px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .delivery {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background-color: #2a9d8f;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 8px 10px; /* reduced padding */
+            font-size: 13px;  /* smaller text */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+            /* slightly smaller margin */
+        }
+
+        .btn-buy:hover {
+            background-color: #21867a;
+        }
+
+        @media (max-width: 992px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+
+        /* Side bar CSS */
+        .sidebar {
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            height: auto;
+            position: static;
+            top: 0;
+        }
+
+        .filter-group {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .filter-header {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+
+        .filter-content {
+            display: none;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+
+        .filter-content label {
+            display: block;
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .arrow {
+
+            transition: transform 0.3s ease;
+        }
+
+        .arrow img {
+
+            width: 25px;
+        }
+
+        .arrow.rotate {
+            transform: rotate(180deg);
+        }
+
+
+        .heading {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .heading h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .heading p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #777;
+        }
+
+
+        /*  -- this some lable css --- */
+
+
+        .lable h3 {
+
+            margin-top: 50px;
+            margin-left: 60px;
+        }
+
+
+
+        /* -----------  FOOTER CSS ---------- */
+
+        .footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 40px 20px 10px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 15px;
+        }
+
+        .footer-section h3,
+        .footer-section h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-section .newsletter input[type="email"] {
+            padding: 10px;
+            width: 70%;
+            margin-right: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .footer-section .newsletter button {
+            padding: 10px 15px;
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .footer-section .social-icons a img {
+            width: 24px;
+            margin: 10px 5px 0 0;
+            filter: grayscale(1);
+            transition: filter 0.3s;
+        }
+
+        .footer-section .social-icons a img:hover {
+            filter: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">E-Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="cart.php">
+                            🛒 Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </li>
+
+
+                    <?php if (isset($_SESSION["user_id"])): ?>
+                        <li class="nav-item"><a class="nav-link" href="./auth/profile.php">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./auth/logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link" href="./auth/login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./auth/register.php">Register</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="navvv">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown m-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Womens Ethnic
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="Sarees.php">Sarees</a></li>
+                                <li><a class="dropdown-item" href="Kurtis.php">Kurtis</a></li>
+                                <li><a class="dropdown-item" href="Lehenga.php">Lehengas</a></li>
+                                <li><a class="dropdown-item" href="Kurta_sets.php">Kurta Sets</a></li>
+                                <li><a class="dropdown-item" href="Suits.php">Suits & Dress Material</a></li>
+                                <li><a class="dropdown-item" href="Islamic_fas.php">Islamic</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="Jewellary.php">Jewellery</a></li>
+                        </li>
+
+                    </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mens
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Top_w_m.php">Top Wear</a></li>
+                            <li><a class="dropdown-item" href="Bottom_w_m.php">Bottom Wear</a></li>
+                            <li><a class="dropdown-item" href="Men_as.php">Men Accessories</a></li>
+                            <li><a class="dropdown-item" href="Ethnic.php">Ethnic Wear</a></li>
+                            <li><a class="dropdown-item" href="Inner.php">Inner & Sleep Wear</a></li>
+                            <li><a class="dropdown-item" href="Men_foo.php">Men Footwear </a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Kids
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Womens.php">Boys & Girls 2+ Years</a></li>
+                            <li><a class="dropdown-item" href="Infant.php">Infant 0-2 Years</a></li>
+                            <li><a class="dropdown-item" href="Assessories.php">Accessories</a></li>
+                            <li><a class="dropdown-item" href="Baby_care.php">Baby Care</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Home & Kitchen
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Womens.php">Kitchen & Appliances</a></li>
+                            <li><a class="dropdown-item" href="Home.php">Home Furnishing</a></li>
+                            <li><a class="dropdown-item" href="Ho_decor.php">Home Decor</a></li>
+                            <li><a class="dropdown-item" href="Kitchen.php">Kitchen & Dining</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Beauty
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Womens.php">Make Up</a></li>
+                            <li><a class="dropdown-item" href="Skin.care.php">SkinCare</a></li>
+                            <li><a class="dropdown-item" href="Babys.php">Baby & Mom</a></li>
+                            <li><a class="dropdown-item" href="Mens_care.php">MensCare</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bags
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Womens.php">Hand Bags</a></li>
+                            <li><a class="dropdown-item" href="School_bags.php">School Bags</a></li>
+                            <li><a class="dropdown-item" href="Travel_bags.php">Travel Bags</a></li>
+                            <li><a class="dropdown-item" href="Backpacks.php">Backpacks</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="Waist_bag.php">Waist Bags</a></li>
+                    </li>
+
+                    </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronic
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Womens.php">Headphones</a></li>
+                            <li><a class="dropdown-item" href="Speakers.php">Speakers</a></li>
+                            <li><a class="dropdown-item" href="Smart_wa.php">Smartwatches</a></li>
+                            <li><a class="dropdown-item" href="Mobile_ho.php">Mobile Holders</a></li>
+                            <li><a class="dropdown-item" href="Mobil_cha.php">Mobile Chargers</a></li>
+                            <li><a class="dropdown-item" href="Mobile_co.php">Mobile cases and covers</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="Smart_we.php">Smart Wearables</a></li>
+                    </li>
+
+                    </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Footwear
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Men_foo.php">Men Footwear</a></li>
+                            <li><a class="dropdown-item" href="wome_fo.php">Womens Footwear</a></li>
+                            <li><a class="dropdown-item" href="Kids_foo.php">Kids Footwear</a></li>
+
+
+
+                        </ul>
+                    </li>
+
+                    <!-- <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Womens.php">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </li>
+
+                    </ul>
+                    </li>
+
+                    </ul> -->
+
+        </nav>
+    </div>
+
+
+
+    <!--*********** new ac tion ---------------- ********************** -->
+
+
+    <!-- label -->
+
+    <div class="lable">
+        <h3>Sarees Store</h4>
+    </div>
+
+
+
+    <div class="main-container">
+
+        <div class="sidebar">
+
+            <!-- Heading -->
+            <div class="heading">
+                <h3>FILTERS</h3>
+                <p>Showing 21-40 out of 10000 products</p>
+            </div>
+
+
+            <!-- Sort By -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Sort By
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="radio" name="sort" checked> Relevance</label>
+                    <label><input type="radio" name="sort"> Price: Low to High</label>
+                    <label><input type="radio" name="sort"> Price: High to Low</label>
+                    <label><input type="radio" name="sort"> Newest First</label>
+                </div>
+            </div>
+
+            <!-- Category -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Category
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox">Sarees</label>
+                </div>
+            </div>
+
+            <!-- Gender -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Gender
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> Girls</label>
+                    <label><input type="checkbox"> Women</label>
+                </div>
+            </div>
+
+            <!-- Color -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Color
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> Red</label>
+                    <label><input type="checkbox"> Blue</label>
+                    <label><input type="checkbox"> Green</label>
+                    <label><input type="checkbox"> Black</label>
+                    <label><input type="checkbox"> White</label>
+                    <label><input type="checkbox"> Beige</label>
+                    <label><input type="checkbox"> Brown</label>
+                    <label><input type="checkbox"> Grey</label>
+                    <label><input type="checkbox"> Marron</label>
+                    <label><input type="checkbox"> Pink</label>
+                    <label><input type="checkbox"> Orange</label>
+                    <label><input type="checkbox"> Multicolor</label>
+                    <label><input type="checkbox"> Pruple</label>
+                    <label><input type="checkbox"> yellow</label>
+
+                </div>
+            </div>
+
+            <!-- Filter: Fabric -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Fabric
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> Cotton</label>
+                    <label><input type="checkbox"> Silk</label>
+                    <label><input type="checkbox"> Linen</label>
+                    <label><input type="checkbox"> Georgette</label>
+                    <label><input type="checkbox"> Art Silk</label>
+                    <label><input type="checkbox"> Cotton Blend</label>
+                    <label><input type="checkbox"> Net</label>
+                    <label><input type="checkbox"> Poly Silk</label>
+                    <label><input type="checkbox"> Rayon</label>
+                    <label><input type="checkbox"> Sana Silk</label>
+                    <label><input type="checkbox"> Chiffon</label>
+                    <label><input type="checkbox"> Bamboo</label>
+                    <label><input type="checkbox"> Jute Cotton </label>
+                    <label><input type="checkbox"> Kanjeevaram</label>
+                    <label><input type="checkbox"> Lycra</label>
+
+                </div>
+            </div>
+
+
+            <!-- Discount -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Discount
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> 10% or more</label>
+                    <label><input type="checkbox"> 25% or more</label>
+                    <label><input type="checkbox"> 50% or more</label>
+                    <label><input type="checkbox"> 70% or more</label>
+                </div>
+            </div>
+
+            <!-- Rating -->
+            <div class="filter-group">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Rating
+                    <div class="arrow">
+                        <img src="../E-com_project/images/arrowwe.png" alt="">
+                    </div>
+                </div>
+                <div class="filter-content">
+                    <label><input type="checkbox"> 4★ & above</label>
+                    <label><input type="checkbox"> 3★ & above</label>
+                    <label><input type="checkbox"> 2★ & above</label>
+                    <label><input type="checkbox"> 1★ & above</label>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- FIRST PRODUCTS CARDS -->
+
+        <div class="product-grid">
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="green"
+                data-price="408"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/Women/sarees/jivika_fass.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagam Ensemble Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹408</span>
+                    <span class="original-price">₹499</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SECOND  PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="jute cotton"
+                data-color="pruple"
+                data-price="485"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/aagyeyi-grace.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagyeyi graceful Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹485</span>
+                    <span class="original-price">₹525</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THIRD  PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="art silk"
+                data-color="green"
+                data-price="141"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aakarasha-hh.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Retro Men Shirts</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹141</span>
+                    <span class="original-price">₹299</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- FOUR  PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="art silk"
+                data-color="brown"
+                data-price="625"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src=" ../E-com_project/images/women/sarees/Aakarsha_gr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarasha graceful Saress</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹625</span>
+                    <span class="original-price">₹800</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- FIFTH PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="marron"
+                data-price="399"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aishani01.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aashani Graceful Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹399</span>
+                    <span class="original-price">₹419</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SIXTH PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="pink"
+                data-price="257"
+                data-discount="25"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/adrika_drr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adrika Drishay Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹257</span>
+                    <span class="original-price">₹350</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTH  PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="black"
+                data-price="315"
+                data-discount="40"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/Women/sarees/Adrika_pretty.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adrika Pretty Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹315</span>
+                    <span class="original-price">₹420</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGTH  PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="brown"
+                data-price="354"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aishani_ensemle.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra Superior Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹354</span>
+                    <span class="original-price">₹425</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="yellow"
+                data-price="362"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aishani_superior.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aishani Ensemble Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹362</span>
+                    <span class="original-price">₹599</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TENTH PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="green"
+                data-price="499"
+                data-discount="70"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Alisha_attra.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alisha Attractive Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹499</span>
+                    <span class="original-price">₹599</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- ELEVEN  PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="grey"
+                data-price="321"
+                data-discount="90"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Alisha_fabu.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alisha Fabulous Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹321</span>
+                    <span class="original-price">₹521</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★☆☆ <span>(3.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWELEL  PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="jute cotton"
+                data-color="pruple"
+                data-price="485"
+                data-discount="25"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Alisha03.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagyeyi Attractive Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹259</span>
+                    <span class="original-price">₹325</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITNEE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="pruple"
+                data-price="577"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Alluring04.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Fabulous Sarees</h4>
+
+                <div class="price-box">
+                    <span class="discount-price">₹577</span>
+                    <span class="original-price">₹650</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- FOURTHEE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="green"
+                data-price="397"
+                data-discount="10"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/banita_senti.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita Sensational Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹397</span>
+                    <span class="original-price">₹409</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+
+            <!-- FIFTHEN PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="pink"
+                data-price="467"
+                data-discount="40"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/charvi_pet.webp" alt="Product Image"></a>
+                <h4 class="product-title">Charvi Petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹467</span>
+                    <span class="original-price">₹700</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SIXTHEEN PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="brown"
+                data-price="220"
+                data-discount="50"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Lycra_sarees.webp" alt="Product Image"></a>
+                <h4 class="product-title">Lycra Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹220</span>
+                    <span class="original-price">₹420</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTHEEN PRODUCTS CRADS  -->
+
+            <div class="product-card"
+                data-fabric="linen"
+                data-color="pink"
+                data-price="371"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Jivika-alluring.webp" alt="Product Image"></a>
+                <h4 class="product-title">Jivika Alluring Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹371</span>
+                    <span class="original-price">₹589</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- EIGHTEEN PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="blue"
+                data-price="535"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""> <img src="../E-com_project/images/women/sarees/myra_pp.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹535</span>
+                    <span class="original-price">₹600</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINETEEN PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="yellow"
+                data-price="445"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Trendy_pett.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹445</span>
+                    <span class="original-price">₹505</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="blue"
+                data-price="497"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/trendy_sens.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Sensational Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹497</span>
+                    <span class="original-price">₹520</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY ONE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="red"
+                data-price="657"
+                data-discount="15"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/myra_drishya.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra Drisdhya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹657</span>
+                    <span class="original-price">₹750</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY TWO PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="blue"
+                data-price="280"
+                data-discount="50"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/jivika_fab.webp" alt="Product Image"></a>
+                <h4 class="product-title">Jivika fabulous Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹280</span>
+                    <span class="original-price">₹370</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY THREE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="jute cotton"
+                data-color="green"
+                data-price="220"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Jivika_ref.webp" alt="Product Image"></a>
+                <h4 class="product-title">Jivika Sensational Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹220</span>
+                    <span class="original-price">₹320</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY FOUR PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="yellow"
+                data-price="485"
+                data-discount="25"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Ikat_net02.webp" alt="Product Image"></a>
+                <h4 class="product-title">Ikat Net Embroidered Sar...</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹338</span>
+                    <span class="original-price">₹405</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY FIVE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="pruple"
+                data-price="450"
+                data-discount="60"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/jivika_atttr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Jivika Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹450</span>
+                    <span class="original-price">₹550</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY SIX PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="pruple"
+                data-price="420"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/ETP_.webp" alt="Product Image"></a>
+                <h4 class="product-title">ETP Sensational Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹420</span>
+                    <span class="original-price">₹502</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY SEVEVN PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="pink"
+                data-price="352"
+                data-discount="40"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Chitrarekha_enss.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chitrarekha Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹352</span>
+                    <span class="original-price">₹400</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY EIGHT PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="art silk"
+                data-color="yellow"
+                data-price="280"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Chitrarekha.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chitrarekha fabulous Sa...</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹280</span>
+                    <span class="original-price">₹320</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- TWENTY NINE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="beige"
+                data-price="420"
+                data-discount="50"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/New_fency.webp" alt="Product Image"></a>
+                <h4 class="product-title">New fency Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹420</span>
+                    <span class="original-price">₹520</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="blue"
+                data-price="354"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/charvi_all.webp" alt="Product Image"></a>
+                <h4 class="product-title">Charvi Fency Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹354</span>
+                    <span class="original-price">₹420</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY ONE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="marron"
+                data-price="500"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/adrika_di.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adrika Sensational Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹500</span>
+                    <span class="original-price">₹588</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY TWO PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="yellow"
+                data-price="666"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Adrika_att.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adrika Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹666</span>
+                    <span class="original-price">₹703</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY THREE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="multicolor"
+                data-price="1,029"
+                data-discount="80"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/trndy_pp.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹1,029</span>
+                    <span class="original-price">₹1,100</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY FOUR PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="black"
+                data-price="262"
+                data-discount="45"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aagaam_S.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagam Superior Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹262</span>
+                    <span class="original-price">₹350</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY FIVE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="green"
+                data-price="285"
+                data-discount="40"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aakrasha_grac.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarsha Braceful Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹285</span>
+                    <span class="original-price">₹320</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY SIX PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="brown"
+                data-price="278"
+                data-discount="35"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aakarasha_ppp.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarsha Petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹278</span>
+                    <span class="original-price">₹315</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY SEVEN PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="linen"
+                data-color="pruple"
+                data-price="216"
+                data-discount="20"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Attractive_stain.webp" alt="Product Image"></a>
+                <h4 class="product-title">Attractive Stain Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹216</span>
+                    <span class="original-price">₹280</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY EIGHT PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="pruple"
+                data-price="279"
+                data-discount="20"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aagam-voguis.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagam Voguish Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹279</span>
+                    <span class="original-price">₹329</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- THRITY NINE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="white"
+                data-price="337"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Kasvhi_senn.webp" alt="Product Image"></a>
+                <h4 class="product-title">Kashvi Sensational Sar...</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹337</span>
+                    <span class="original-price">₹393</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- FOURTY PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="green"
+                data-price="531"
+                data-discount="60"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aishani_prrt.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aishani Pretty Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹531</span>
+                    <span class="original-price">₹602</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- FOURTY ONE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="white"
+                data-price="161"
+                data-discount="10"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Brassso-n.webp" alt="Product Image"></a>
+                <h4 class="product-title">Brasso Net Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹161</span>
+                    <span class="original-price">₹178</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  FOURTY TWO PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="pruple"
+                data-price="309"
+                data-discount="50"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Geotgte-s.webp" alt="Product Image"></a>
+                <h4 class="product-title">Georgette Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹309</span>
+                    <span class="original-price">₹360</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  FOURTY THREE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="jute cotton"
+                data-color="blue"
+                data-price="283"
+                data-discount="60"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Myra_vo.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra Voguish Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹283</span>
+                    <span class="original-price">₹330</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  FOURTY FOUR PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="orange"
+                data-price="278"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Abhisarki_f.webp" alt="Product Image"></a>
+                <h4 class="product-title">Abhisarki Fashionable S..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹278</span>
+                    <span class="original-price">₹330</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  FOURTY FIVE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="grey"
+                data-price="375"
+                data-discount="30"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/JIvika_ens.webp" alt="Product Image"></a>
+                <h4 class="product-title">Jivika Ensemble Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹375</span>
+                    <span class="original-price">₹425</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  FOURTY SIX PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="black"
+                data-price="305"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aagyeyi_sen.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adrika Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹305</span>
+                    <span class="original-price">₹380</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  FOURTY SEVEN PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="pruple"
+                data-price="666"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Charvi-faa.webp" alt="Product Image"></a>
+                <h4 class="product-title">Charvi Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹666</span>
+                    <span class="original-price">₹705</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  FOURTY EIGHT PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="blue"
+                data-price="299"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/trendy_ppp.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Pretty Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹299</span>
+                    <span class="original-price">₹350</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  FOURTY NINE PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="blue"
+                data-price="336"
+                data-discount="20"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aakarsh_en.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarsha Emsemble Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹336</span>
+                    <span class="original-price">₹430</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- FIFTY PRODUCTS CRADS -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="blue"
+                data-price="306"
+                data-discount="40"
+                data-rating="2"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/kashvi_pp.webp" alt="Product Image"></a>
+                <h4 class="product-title">Kashvi Pretty Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹306</span>
+                    <span class="original-price">₹350</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(2.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="pruple"
+                data-price="312"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aishani_ppp.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aishani petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹312</span>
+                    <span class="original-price">₹395</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="pruple"
+                data-price="198"
+                data-discount="20"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Adrika_dd.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adrika Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹198</span>
+                    <span class="original-price">₹230</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="marron"
+                data-price="334"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Abhisaeiik.webp" alt="Product Image"></a>
+                <h4 class="product-title">Abhisrika fabulous Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹334</span>
+                    <span class="original-price">₹420</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="green"
+                data-price="415"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aagyeyiiii.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagyeyii Graceful Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹307</span>
+                    <span class="original-price">₹415</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="beige"
+                data-price="249"
+                data-discount="50"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Sana_silk.webp" alt="Product Image"></a>
+                <h4 class="product-title">Sana Silk Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹249</span>
+                    <span class="original-price">₹350</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="beige"
+                data-price="264"
+                data-discount="30"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Kanooda.webp" alt="Product Image"></a>
+                <h4 class="product-title">Kanooda Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹264</span>
+                    <span class="original-price">₹305</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="blue"
+                data-price="666"
+                data-discount="70"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Alinea-kk.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alinea kanjeevrama Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹666</span>
+                    <span class="original-price">₹800</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="green"
+                data-price="623"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Adrikka_ppp.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adrika Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹623</span>
+                    <span class="original-price">₹680</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="grey"
+                data-price="666"
+                data-discount="80"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Chitrarekha_ff.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chitrarekha fahionable..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹666</span>
+                    <span class="original-price">₹700</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="green"
+                data-price="387"
+                data-discount="60"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Alisha_faaa.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alisha fabulous Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹387</span>
+                    <span class="original-price">₹420</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="blue"
+                data-price="380"
+                data-discount="60"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/banita_reff.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹380</span>
+                    <span class="original-price">₹400</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="bamboo"
+                data-color="blue"
+                data-price="600"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Charvi_alll.webp" alt="Product Image"></a>
+                <h4 class="product-title">Charvi Alluring Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹600</span>
+                    <span class="original-price">₹700</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric=""
+                data-color="green"
+                data-price="507"
+                data-discount="40"
+                data-rating="3"
+                data-gender="women">
+                <a href=""> <img src="../E-com_project/images/women/sarees/Banarasi_Silk.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banarasi Silk Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹507</span>
+                    <span class="original-price">₹800</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!--  -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="341"
+                data-discount="60"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aagayyi_fd.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagayeyi Refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹341</span>
+                    <span class="original-price">₹410</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SIXTY FOUR PRUODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="beige"
+                data-price="253"
+                data-discount="10"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/charvi_drri.webp" alt="Product Image"></a>
+                <h4 class="product-title">Charvi drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹253</span>
+                    <span class="original-price">₹280</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SIXTY FIVE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="green"
+                data-price="575"
+                data-discount="40"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/ADRIKA_GRR'.webp" alt="Product Image"></a>
+                <h4 class="product-title">Asrika graceful Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹575</span>
+                    <span class="original-price">₹390</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SIXTY SIX PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="black"
+                data-price="266"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/akhas_fffa.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarsha fabulous Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹266</span>
+                    <span class="original-price">₹290</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SIXTY SEVEN PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="georgette"
+                data-color="grey"
+                data-price="245"
+                data-discount="40"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/marble-sor.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagayeyi Refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹341</span>
+                    <span class="original-price">₹370</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SIXTY EIGHT PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="pink"
+                data-price="348"
+                data-discount="10"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/Chanider_cott.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chanderi cotton Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹348</span>
+                    <span class="original-price">₹360</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SIXTY NINE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="art silk"
+                data-color="green"
+                data-price="505"
+                data-discount="60"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Aiishani_gr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aishani Graceful Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹505</span>
+                    <span class="original-price">₹580</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTY PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="art silk"
+                data-color="green"
+                data-price="267"
+                data-discount="60"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/lace_art.webp" alt="Product Image"></a>
+                <h4 class="product-title">Art silk lace Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹267</span>
+                    <span class="original-price">₹301</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTY ONE PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="art silk"
+                data-color="black"
+                data-price="264"
+                data-discount="20"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/kasvhi_drr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Kashvi drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹264</span>
+                    <span class="original-price">₹300</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTY TWO PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="beige"
+                data-price="607"
+                data-discount="60"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/banita_refiii.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita Refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹607</span>
+                    <span class="original-price">₹650</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTY THREE PRODICTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="green"
+                data-price="443"
+                data-discount="50"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/MYARA.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra fashionable Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹443</span>
+                    <span class="original-price">₹480</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTY FOUR PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="green"
+                data-price="286"
+                data-discount="50"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/grenn-chi.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarasha drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹286</span>
+                    <span class="original-price">₹350</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTY FIVE PRODUTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="chiffon"
+                data-color="blue"
+                data-price="338"
+                data-discount="70"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/chiffon-chii.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chitrarekha Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹338</span>
+                    <span class="original-price">₹401</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTY SIX PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="linen"
+                data-color="blue"
+                data-price="494"
+                data-discount="60"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/linene_abhi.webp" alt="Product Image"></a>
+                <h4 class="product-title">Abhisarika Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹494</span>
+                    <span class="original-price">₹515</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTY SEVEN PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="linen"
+                data-color="red"
+                data-price="349"
+                data-discount="70"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/linen_refi.webp" alt="Product Image"></a>
+                <h4 class="product-title">Linen Refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹349</span>
+                    <span class="original-price">₹410</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVEN EIGHT PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="linen"
+                data-color="pink"
+                data-price="641"
+                data-discount="80"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/linne_pink.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹641</span>
+                    <span class="original-price">₹505</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- SEVENTY NINE PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="linen"
+                data-color="orange"
+                data-price="410"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/line_orange.webp" alt="Product Image"></a>
+                <h4 class="product-title">Kashvi fabulous Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹410</span>
+                    <span class="original-price">₹480</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EUGHTY PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="brown"
+                data-price="378"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/silk_myar.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra Petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹378</span>
+                    <span class="original-price">₹410</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTY ONE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="pink"
+                data-price="472"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/silk_banit.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita Superior Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹472</span>
+                    <span class="original-price">₹493</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTY TWO PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="black"
+                data-price="424"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/silk_drii'.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagam Drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹424</span>
+                    <span class="original-price">₹490</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTTY THREE PROCTDS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="black"
+                data-price="565"
+                data-discount="60"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/adika_silk.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adrika Refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹565</span>
+                    <span class="original-price">₹610</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTY FOUR PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="jute cotton"
+                data-color="blue"
+                data-price="515"
+                data-discount="70"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/jut_chir.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagayeyi Refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹515</span>
+                    <span class="original-price">₹610</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTY FIVE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="jute cotton"
+                data-color="beige"
+                data-price="437"
+                data-discount="50"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/jute_mya.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹437</span>
+                    <span class="original-price">₹490</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTY FIVE PROCDUTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="jute cotton"
+                data-color="yellow"
+                data-price="584"
+                data-discount="90"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/jute_yel.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adrika Superior Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹594</span>
+                    <span class="original-price">₹620</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTY SIX PRODCUTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="jute cotton"
+                data-color="black"
+                data-price="438"
+                data-discount="10"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/jute_bla.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra Alluring Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹341</span>
+                    <span class="original-price">₹410</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTY SEVEN PRODCUTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="yellow"
+                data-price="314"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/net_yel.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita Atrractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹314</span>
+                    <span class="original-price">₹380</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTY EIGHT PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="pink"
+                data-price="369"
+                data-discount="50"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/net_pink.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita Ensemble Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹369</span>
+                    <span class="original-price">₹410</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- EIGHTTY NINE PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="red"
+                data-price="378"
+                data-discount="20"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/net_red.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarsha Refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹378</span>
+                    <span class="original-price">₹390</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="grey"
+                data-price="525"
+                data-discount="40"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/net_grey.webp" alt="Product Image"></a>
+                <h4 class="product-title">Abhisarika ensemble..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹525</span>
+                    <span class="original-price">₹590</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY ONE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="green"
+                data-price="1,016"
+                data-discount="60"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/rayon_gre.webp" alt="Product Image"></a>
+                <h4 class="product-title">Abhisarika Refined Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹1,016</span>
+                    <span class="original-price">₹1,110</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY ONE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="brown"
+                data-price="605"
+                data-discount="20"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/rayon_bro.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aishani petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹341</span>
+                    <span class="original-price">₹410</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY TWO PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="red"
+                data-price="663"
+                data-discount="80"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/rayon_red.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aishani Refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹663</span>
+                    <span class="original-price">₹702</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY THREE PRODCUTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="blue"
+                data-price="600"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/rayon_blu.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trandy Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹600</span>
+                    <span class="original-price">₹680</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY FOUR PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="brown"
+                data-price="257"
+                data-discount="50"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_chi.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chitrarekha voguish S..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹257</span>
+                    <span class="original-price">₹350</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY FIVE PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="multicolor"
+                data-price="654"
+                data-discount="70"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blend_abhi.webp" alt="Product Image"></a>
+                <h4 class="product-title">Abhisarika petite Sar..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹654</span>
+                    <span class="original-price">₹680</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY SIX PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="green"
+                data-price="261"
+                data-discount="80"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/bleen_alis.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alisha fashionable Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹600</span>
+                    <span class="original-price">₹680</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY SEVEN PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="green"
+                data-price="838"
+                data-discount="70"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blend_sji.webp" alt="Product Image"></a>
+                <h4 class="product-title">Skiran's Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹838</span>
+                    <span class="original-price">₹880</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY EIGHT PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="yellow"
+                data-price="445"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blend_bani.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita Drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹445</span>
+                    <span class="original-price">₹480</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- NINTY NINE PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="blue"
+                data-price="295"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_aaa.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagyeyi Superior Sar..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹600</span>
+                    <span class="original-price">₹680</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="black"
+                data-price="320"
+                data-discount="10"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_kas.webp" alt="Product Image"></a>
+                <h4 class="product-title">Kashvi fabulous Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹320</span>
+                    <span class="original-price">₹330</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- ONE HUNDRED ONE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="orange"
+                data-price="538"
+                data-discount="30"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_or.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarsha petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹538</span>
+                    <span class="original-price">₹580</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TWO PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="grey"
+                data-price="285"
+                data-discount="50"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/Blen_gre.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aishani voguish Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹285</span>
+                    <span class="original-price">₹350</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDERED THREE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="pink"
+                data-price="825"
+                data-discount="30"
+                data-rating="2"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/BLEN_PINK.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chitrarekha Alluring..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹825</span>
+                    <span class="original-price">₹880</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(2.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FOUR PRODTCS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="brown"
+                data-price="413"
+                data-discount="60"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blend_borne.webp" alt="Product Image"></a>
+                <h4 class="product-title">kashvi ensemble Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹413</span>
+                    <span class="original-price">₹507</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FIVE PRODCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="purple"
+                data-price="508"
+                data-discount="50"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/blend_pru.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarsha graceful Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹508</span>
+                    <span class="original-price">₹550</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED SIX PRODCUTS CARDS -->
+
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="multicolor"
+                data-price="451"
+                data-discount="60"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/blend_trnd.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trandy drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹451</span>
+                    <span class="original-price">₹580</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED SEVEN PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="white"
+                data-price="321"
+                data-discount="20"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_whi.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra refined Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹321</span>
+                    <span class="original-price">₹350</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED EIGHT PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="white"
+                data-price="341"
+                data-discount="30"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_pr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alisha Pretty Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹341</span>
+                    <span class="original-price">₹370</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED NINE PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="beige"
+                data-price="364"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blend_petp.webp" alt="Product Image"></a>
+                <h4 class="product-title">Abhisarika petite S..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹364</span>
+                    <span class="original-price">₹396</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TEN PRODCUTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="yellow"
+                data-price="344"
+                data-discount="60"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_yell.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakrasha Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹344</span>
+                    <span class="original-price">₹408</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED ELEVLE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="orange"
+                data-price="434"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_org.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagyeyi Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹434</span>
+                    <span class="original-price">₹450</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TWLW PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="pink"
+                data-price="797"
+                data-discount="30"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_pin.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chitrarekha Attractive..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹600</span>
+                    <span class="original-price">₹680</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED THREE PRODCUTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="grey"
+                data-price="385"
+                data-discount="40"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_gg.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chirarekha Attractive..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹385</span>
+                    <span class="original-price">₹408</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FOURT PRODCUTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="blue"
+                data-price="348"
+                data-discount="50"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_blu.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹348</span>
+                    <span class="original-price">₹388</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HHUNDRED FIVET PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="red"
+                data-price="279"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen_red.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakarsha Attractive..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹279</span>
+                    <span class="original-price">₹290</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FIXT PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="cotton blend"
+                data-color="green"
+                data-price="377"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/blen-gr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagam refind Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹377</span>
+                    <span class="original-price">₹397</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED SEENT PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="green"
+                data-price="431"
+                data-discount="70"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/poly_ch.webp" alt="Product Image"></a>
+                <h4 class="product-title">Charvi alluring Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹431</span>
+                    <span class="original-price">₹521</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED EIGTT PRODCUTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="red"
+                data-price="373"
+                data-discount="10"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_re.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trandy Attractive Sar..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹373</span>
+                    <span class="original-price">₹380</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED NINT PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="pruple"
+                data-price="284"
+                data-discount="40"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_pup.webp" alt="Product Image"></a>
+                <h4 class="product-title">Kashvi fabulous Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹284</span>
+                    <span class="original-price">₹315</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TWEN PRODCUTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="blue"
+                data-price="454"
+                data-discount="60"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_blu.webp" alt="Product Image"></a>
+                <h4 class="product-title">Charhvi superior Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹454</span>
+                    <span class="original-price">₹520</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TWE ONE PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="green"
+                data-price="513"
+                data-discount="30"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_gr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita fahionable..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹513</span>
+                    <span class="original-price">₹680</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.7)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TE TWO PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="beige"
+                data-price="369"
+                data-discount="70"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_bei.webp" alt="Product Image"></a>
+                <h4 class="product-title">Bantia Attractive..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹369</span>
+                    <span class="original-price">469</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TW THR PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="white"
+                data-price="247"
+                data-discount="80"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_whi.webp" alt="Product Image"></a>
+                <h4 class="product-title">Jivika Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹247</span>
+                    <span class="original-price">₹380</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TW FOU PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="pruple"
+                data-price="404"
+                data-discount="30"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_ppp.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alisha Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹404</span>
+                    <span class="original-price">₹480</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.6)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TW FIV PRODUCTS CARDS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="yellow"
+                data-price="406"
+                data-discount="50"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_yel.webp" alt="Product Image"></a>
+                <h4 class="product-title">kashvi fabluous Sar..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹406</span>
+                    <span class="original-price">₹480</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.4)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TW SIX PRODCTS CARDS -->
+
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="white"
+                data-price="419"
+                data-discount="50"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_whh.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trandy Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹419</span>
+                    <span class="original-price">₹580</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TW SEV PRODCUTS CRADS  -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="mulitcolor"
+                data-price="694"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_lui.webp" alt="Product Image"></a>
+                <h4 class="product-title">Satrani Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹694</span>
+                    <span class="original-price">₹708</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNF=DRED  TW EI PRODCUTS -->
+
+            <div class="product-card"
+                data-fabric="poly silk"
+                data-color="grey"
+                data-price="381"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/pol_grrre.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra Attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹381</span>
+                    <span class="original-price">₹390</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TW NI PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="red"
+                data-price="1,050"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/rayon_red.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra sensational Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹1,050</span>
+                    <span class="original-price">₹1,100</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TH PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="multicolor"
+                data-price="468"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/royo_cha.webp" alt="Product Image"></a>
+                <h4 class="product-title">Charvi voguish Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹468</span>
+                    <span class="original-price">₹480</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED THE ON  PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="green"
+                data-price="539"
+                data-discount="50"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/roy_gr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chairekha Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹539</span>
+                    <span class="original-price">₹680</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TH TW PRODCTS  -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="beige"
+                data-price="421"
+                data-discount="70"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/roy_bee.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chrirekha Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹421</span>
+                    <span class="original-price">₹580</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TH FOR PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="rayon"
+                data-color="blue"
+                data-price="785"
+                data-discount="70"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/rao_bl.webp" alt="Product Image"></a>
+                <h4 class="product-title">Jivika alluring Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹785</span>
+                    <span class="original-price">₹885</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TH FI PROSDUCTS -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="white"
+                data-price="640"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/sana_whi.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagyyi graceful Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹640</span>
+                    <span class="original-price">₹711</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TH SIX PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="green"
+                data-price="364"
+                data-discount="40"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/sana_gg.webp" alt="Product Image"></a>
+                <h4 class="product-title">Beautiful Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹364</span>
+                    <span class="original-price">₹380</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TH SE PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="pink"
+                data-price="469"
+                data-discount="50"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/sana_pin.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alishani refind Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹469</span>
+                    <span class="original-price">₹560</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TH EI PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="orange"
+                data-price="303"
+                data-discount="70"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/sana_orr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Priya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹303</span>
+                    <span class="original-price">₹380</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED TH NI PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="grey"
+                data-price="367"
+                data-discount="80"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/sana_grrey.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra ensemble Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹367</span>
+                    <span class="original-price">₹450</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FO PRODICUTS -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="pruple"
+                data-price="260"
+                data-discount="90"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/sana_pru.webp" alt="Product Image"></a>
+                <h4 class="product-title">kashvi pretty Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹260</span>
+                    <span class="original-price">₹363</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FO ON PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="green"
+                data-price="489"
+                data-discount="20"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/sana_mul.webp" alt="Product Image"></a>
+                <h4 class="product-title">Fancy satin sailk Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹489</span>
+                    <span class="original-price">₹599</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FO TW PRODUCTS   -->
+
+            <div class="product-card"
+                data-fabric="sana silk"
+                data-color="pink"
+                data-price="1,297"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/sana_pinnn.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trandy voguish Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹1,297</span>
+                    <span class="original-price">₹1,315</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDERD FO TH PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="pruple"
+                data-price="610"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_pur.webp" alt="Product Image"></a>
+                <h4 class="product-title">Adirka graceful Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹610</span>
+                    <span class="original-price">₹680</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FO FO PRODUCT -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="yellow"
+                data-price="996"
+                data-discount="50"
+                data-rating="3"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_aa.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakrasha Drishya Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹996</span>
+                    <span class="original-price">₹1,111</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FO FI PRODUC TS CRADS -->
+
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="pink"
+                data-price="626"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_pii.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aakrasha petite Sar..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹626</span>
+                    <span class="original-price">₹682</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED RO SIX PRODUCTDS CARDS -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="blue"
+                data-price="313"
+                data-discount="10"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_bluee.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagayeyi sensational..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹313</span>
+                    <span class="original-price">₹363</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED RO SEV PROCUTDS CARDS -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="yellow"
+                data-price="399"
+                data-discount="20"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_yee.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita sensational Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹399</span>
+                    <span class="original-price">₹415</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED FO EI PRODCUTS  -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="white"
+                data-price="419"
+                data-discount="30"
+                data-rating="4"
+                data-gender="girls"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_tr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Attractive Sare..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹313</span>
+                    <span class="original-price">₹363</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDARED FO NI PRODUCTDS CARDS -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="grey"
+                data-price="363"
+                data-discount="30"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_gr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aishani Voguish Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹363</span>
+                    <span class="original-price">₹389</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.9)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED FI PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="black"
+                data-price="525"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_bla.webp" alt="Product Image"></a>
+                <h4 class="product-title">Kashvi Drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹525</span>
+                    <span class="original-price">₹563</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FI ON PRODUCTS CARDS  -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="brown"
+                data-price="313"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_bor.webp" alt="Product Image"></a>
+                <h4 class="product-title">Kashvi Drishya Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹313</span>
+                    <span class="original-price">₹363</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FI TO PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="kanjeevaram"
+                data-color="green"
+                data-price="486"
+                data-discount="30"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/kan_grr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagam pretty Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹486</span>
+                    <span class="original-price">₹503</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED FI TH PRODCUTS -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="blue"
+                data-price="220"
+                data-discount="60"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/lyc_blu.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chitrarekha Ensemble Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹220</span>
+                    <span class="original-price">₹253</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED FI FO PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="pruple"
+                data-price="488"
+                data-discount="70"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/lyc_trn.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Sensational S..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹220</span>
+                    <span class="original-price">₹253</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDERD FI SI PRODUCTDS -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="black"
+                data-price="491"
+                data-discount="80"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/lyc_bla.webp" alt="Product Image"></a>
+                <h4 class="product-title">Jivika sensational S..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹491</span>
+                    <span class="original-price">₹593</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED FI SE PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="pruple"
+                data-price="451"
+                data-discount="20"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/lyc_pru.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra Superior Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹451</span>
+                    <span class="original-price">₹492</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED FI EI PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="grey"
+                data-price="397"
+                data-discount="40"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/lyc_gre.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aagam Ensemble Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹397</span>
+                    <span class="original-price">₹420</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED FI NI PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="pink"
+                data-price="419"
+                data-discount="40"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/lyc_pii.webp" alt="Product Image"></a>
+                <h4 class="product-title">Aishani Refind Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹419</span>
+                    <span class="original-price">₹489</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED SI PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="grey"
+                data-price="576"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/lyc_gree.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alisha petite Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹576</span>
+                    <span class="original-price">₹594</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED SI ON PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="red"
+                data-price="335"
+                data-discount="10"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/lyc_red.webp" alt="Product Image"></a>
+                <h4 class="product-title">Abisarika Superior S..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹335</span>
+                    <span class="original-price">₹353</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.3)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED SI TO PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="lycra"
+                data-color="green"
+                data-price="349"
+                data-discount="30"
+                data-rating="3"
+                data-gender="girls"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/lyc_green.webp" alt="Product Image"></a>
+                <h4 class="product-title">Alisha Alluring Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹349</span>
+                    <span class="original-price">₹367</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.5)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED SI TH PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="net"
+                data-color="marron"
+                data-price="379"
+                data-discount="40"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/net_ch.webp" alt="Product Image"></a>
+                <h4 class="product-title">Charvi fablous Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹397</span>
+                    <span class="original-price">₹413</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED SI FO PRODUCTS -->
+
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="blue"
+                data-price="328"
+                data-discount="60"
+                data-rating="3"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/coo_blu.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita Pretty Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹328</span>
+                    <span class="original-price">₹353</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(3.8)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED SI FI PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="green"
+                data-price="324"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/coo_gr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy fashionable Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹324</span>
+                    <span class="original-price">₹352</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNXDRED SI SI PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="multicolor"
+                data-price="261"
+                data-discount="40"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/coo_mul.webp" alt="Product Image"></a>
+                <h4 class="product-title">Myra superior Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹261</span>
+                    <span class="original-price">₹293</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED SI SE PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="black"
+                data-price="257"
+                data-discount="70"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/coo_bla.webp" alt="Product Image"></a>
+                <h4 class="product-title">Chitrarekha Ensemble Sa..</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹257</span>
+                    <span class="original-price">₹357</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.0)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED SI EI PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="cotton"
+                data-color="blue"
+                data-price="484"
+                data-discount="60"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/coo_ble.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Alluring Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹484</span>
+                    <span class="original-price">₹569</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED SI NI PRODUCTS -->
+
+            <div class="product-card"
+                data-fabric="silk"
+                data-color="green"
+                data-price="662"
+                data-discount="20"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/sil_grr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Alluring Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹662</span>
+                    <span class="original-price">₹669</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.1)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+            <!-- HUNDRED SEV PRODUCTS  -->
+
+            <div class="product-card"
+                data-fabric="linen"
+                data-color="red"
+                data-price="664"
+                data-discount="60"
+                data-rating="4"
+                data-gender="girls">
+                <a href=""><img src="../E-com_project/images/women/sarees/line_re.webp" alt="Product Image"></a>
+                <h4 class="product-title">Banita attractive Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹664</span>
+                    <span class="original-price">₹699</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+            <!-- HUNDRED SE ON PRODUCTDS  -->
+
+
+            <div class="product-card"
+                data-fabric="linen"
+                data-color="green"
+                data-price="289"
+                data-discount="60"
+                data-rating="4"
+                data-gender="women">
+                <a href=""><img src="../E-com_project/images/women/sarees/line_tr.webp" alt="Product Image"></a>
+                <h4 class="product-title">Trendy Alluring Sarees</h4>
+                <div class="price-box">
+                    <span class="discount-price">₹289</span>
+                    <span class="original-price">₹320</span>
+                </div>
+                <p class="delivery">Free Delivery</p>
+                <div class="rating">★★★★☆ <span>(4.2)</span></div>
+                <button class="btn-buy">Buy Now</button>
+            </div>
+
+
+
+            <!-- limit  -->
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- Footer -->
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Mens</h2>
+                <p>Your one-stop shop for all your needs. Trusted by thousands worldwide.</p>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section support">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="/faq">FAQs</a></li>
+                    <li><a href="/returns">Returns</a></li>
+                    <li><a href="/shipping">Shipping</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#"><img src="twitter-icon.svg" alt="Twitter"></a>
+                    <a href="#"><img src="instagram-icon.svg" alt="Instagram"></a>
+                    <a href="#"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 ShopMate. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <!-- <* side bar backend js  -->
+
+
+
+
+    <!-- side backend *> -->
+
+
+    <!-- <* side bar arrow java script -->
+
+    <script>
+        function toggleFilter(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow');
+            const isOpen = content.style.display === 'block';
+            content.style.display = isOpen ? 'none' : 'block';
+            arrow.classList.toggle('rotate', !isOpen);
+        }
+    </script>
+
+    <!-- side bar *> -->
+
+
+
+
+    <script>
+        document.querySelectorAll('.dropdown-toggle-side').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dropdown = this.nextElementSibling;
+                const isVisible = dropdown.style.display === 'block';
+
+                // Close others
+                document.querySelectorAll('.dropdown-menu-side').forEach(menu => menu.style.display = 'none');
+                document.querySelectorAll('.dropdown-toggle-side').forEach(btn => btn.classList.remove('active'));
+
+                // Toggle this
+                if (!isVisible) {
+                    dropdown.style.display = 'block';
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        window.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu-side').forEach(menu => menu.style.display = 'none');
+            document.querySelectorAll('.dropdown-toggle-side').forEach(btn => btn.classList.remove('active'));
+        });
+    </script>
+
+
+
+
+
+    <script>
+        // Toggle dropdown menu on click
+        document.querySelectorAll('.dropdown-toggle-side').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation(); // prevent bubbling to window
+                const dropdown = this.nextElementSibling;
+                const isVisible = dropdown.style.display === 'block';
+
+                // Close all dropdowns first
+                document.querySelectorAll('.dropdown-menu-side').forEach(menu => {
+                    menu.style.display = 'none';
+                });
+
+                // Toggle this one
+                dropdown.style.display = isVisible ? 'none' : 'block';
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        window.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu-side').forEach(menu => {
+                menu.style.display = 'none';
+            });
+        });
+    </script>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+<script>
+    const checkboxes = document.querySelectorAll('.filter-content input[type="checkbox"]');
+    const radios = document.querySelectorAll('.filter-content input[type="radio"]');
+    const productCards = document.querySelectorAll('.product-card');
+    const grid = document.querySelector('.product-grid');
+
+    function filterAndSortProducts() {
+        let fabrics = [];
+        let colors = [];
+        let discounts = [];
+        let ratings = [];
+        let genders = [];
+        let selectedSort = document.querySelector('input[name="sort"]:checked')?.nextSibling.nodeValue.trim();
+
+        checkboxes.forEach(cb => {
+            if (cb.checked) {
+                const label = cb.parentElement.textContent.trim().toLowerCase();
+
+                if (['cotton', 'silk', 'linen', 'georgette', 'art silk', 'cotton blend', 'net', 'poly silk', 'rayon', 'sana silk', 'chiffon', 'bamboo', 'jute cotton', 'kanjeevaram', 'lycra'].includes(label)) {
+                    fabrics.push(label);
+                } else if (['red', 'blue', 'green', 'black', 'white', 'beige', 'brown', 'grey', 'marron', 'pink', 'orange', 'multicolor', 'pruple', 'yellow'].includes(label)) {
+                    colors.push(label);
+                } else if (label.includes('% or more')) {
+                    discounts.push(parseInt(label));
+                } else if (label.includes('★')) {
+                    ratings.push(parseInt(label));
+                } else if (['men', 'women', 'girls'].includes(label)) {
+                    genders.push(label);
+                }
+
+            }
+        });
+
+        let filtered = Array.from(productCards).filter(card => {
+            const fabric = card.dataset.fabric?.toLowerCase();
+            const color = card.dataset.color?.toLowerCase();
+            const price = parseFloat(card.dataset.price);
+            const discount = parseFloat(card.dataset.discount);
+            const rating = parseFloat(card.dataset.rating);
+
+            const fabricMatch = fabrics.length === 0 || fabrics.includes(fabric);
+            const colorMatch = colors.length === 0 || colors.includes(color);
+            const discountMatch = discounts.length === 0 || discounts.some(d => discount >= d);
+            const ratingMatch = ratings.length === 0 || ratings.some(r => rating >= r);
+            const gender = card.dataset.gender?.toLowerCase();
+            const genderMatch = genders.length === 0 || genders.includes(gender);
+
+            return fabricMatch && colorMatch && discountMatch && ratingMatch && genderMatch;
+        });
+
+        // Sorting
+        if (selectedSort === 'Price: Low to High') {
+            filtered.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+        } else if (selectedSort === 'Price: High to Low') {
+            filtered.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+        }
+
+        grid.innerHTML = '';
+        filtered.forEach(card => grid.appendChild(card));
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener('change', filterAndSortProducts));
+    radios.forEach(rb => rb.addEventListener('change', filterAndSortProducts));
+</script>
+
+
+
+
+
+
+</html>

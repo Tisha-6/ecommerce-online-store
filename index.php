@@ -1,0 +1,1380 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store | Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../E-com_project/assets/style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: rgb(243, 244, 245);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(90deg, rgb(57, 190, 202) 0%, rgb(23, 142, 182) 66%);
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .navvv {
+
+            border: 2px solid white;
+            background-color: rgb(44, 112, 104);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: black !important;
+            margin-left: 20px;
+            padding: 5px;
+        }
+
+        .nav-link {
+            color: black !important;
+            font-weight: 500;
+            margin-left: 20px;
+            padding: 5px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        /* ------------------ dropdown menu csss ------------------------------ */
+
+
+        /* Dropdown Menu Styling */
+        .dropdown-menu {
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            border: none;
+            min-width: 200px;
+            transition: all 0.2s ease-in-out;
+            z-index: 9999;
+            display: none;
+            /* Hide by default */
+            position: absolute;
+        }
+
+        /* Show dropdown on hover */
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Dropdown Items */
+        .dropdown-item {
+            padding: 10px 20px;
+            color: #333;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect: color + slight scale */
+        .dropdown-item:hover {
+            background-color: rgb(171, 231, 248);
+            color: rgb(54, 54, 55);
+            transform: scale(1.05);
+            border-radius: 5px;
+        }
+
+        /* Divider style */
+        .dropdown-divider {
+            margin: 5px 0;
+            border-color: #e0e0e0;
+        }
+
+        /* Navbar brand */
+        .navbar-brand {
+            font-weight: bold;
+            color: rgb(27, 26, 27) !important;
+        }
+
+        /* Navbar links */
+        .nav-link {
+            font-weight: 500;
+            color: #333 !important;
+        }
+
+        /* Navbar link hover */
+        .nav-link:hover {
+            color: rgb(255, 255, 255) !important;
+        }
+
+
+
+
+
+
+
+
+
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://source.unsplash.com/1600x900/?shopping,mall') center/cover no-repeat;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            background-color: #ff758c;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            color: white;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #ff527b;
+        }
+
+
+        /* ------------------------------------------------------------- */
+
+
+
+
+        /* different cards images css */
+
+
+
+        .firstt-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+            margin-top: -200px;
+            margin-left: 10px;
+            z-index: 1;
+
+        }
+
+        .image-firstt-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .image-firstt-container a {
+            display: block;
+        }
+
+        .image-firstt-container img {
+            width: 150px;
+            height: 120px;
+            margin-top: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-firstt-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* seco cards images style css */
+
+        .seco-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+            margin-top: -200px;
+            margin-left: 10px;
+            z-index: 1;
+        }
+
+        .image-seco-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .image-seco-container a {
+            display: block;
+        }
+
+        .image-seco-container img {
+            width: 150px;
+            height: 120px;
+            margin-top: 25px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-seco-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* thrid cards images style css */
+
+
+
+        .three-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+            margin-top: -200px;
+            margin-left: 10px;
+            z-index: 1;
+        }
+
+        .image-three-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .image-three-container a {
+            display: block;
+        }
+
+        .image-three-container img {
+            width: 150px;
+            height: 120px;
+            margin-top: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-three-container img:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* fourth cards images style css */
+
+
+        .four-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+            margin-top: -200px;
+            margin-left: 10px;
+            z-index: 1;
+        }
+
+        .image-four-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .image-four-container a {
+            display: block;
+        }
+
+        .image-four-container img {
+            width: 120px;
+            height: 120px;
+            margin-top: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-four-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Base styles for cards container */
+        .best {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 10px;
+            flex-direction: row;
+        }
+
+        /* When screen is small, switch to vertical stacking */
+        .best[data-grid-breakpoint="sm"] {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Responsive card width */
+        .best[data-grid-breakpoint="sm"] .firstt-card,
+        .best[data-grid-breakpoint="sm"] .seco-card,
+        .best[data-grid-breakpoint="sm"] .three-card,
+        .best[data-grid-breakpoint="sm"] .four-card {
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        /* Optional: make sure cards don't overflow */
+        .firstt-card,
+        .seco-card,
+        .three-card,
+        .four-card {
+            box-sizing: border-box;
+        }
+
+
+        /* 2222222222 products cards css 22222222222222 */
+
+
+        /* Container for products */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* Individual product card */
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* Hover effect */
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Product image */
+        .product-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        /* Product title */
+        .product-title {
+            font-size: 1.1rem;
+            margin: 15px 0 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Rating */
+        .rating {
+            color: #f39c12;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        /* Price box */
+        .price-box {
+            margin: 10px 0;
+        }
+
+        .discount-price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2a9d8f;
+            margin-right: 10px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Delivery info */
+        .delivery {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Buy button (optional) */
+        .btn-buy {
+            background-color: #2a9d8f;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 8px 10px; /* reduced padding */
+            font-size: 13px;  /* smaller text */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+            /* slightly smaller margin */
+        }
+
+        .btn-buy:hover {
+            background-color: #21867a;
+        }
+
+        @media (min-width: 1200px) {
+            .product-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+
+
+        /*  //////////////////// it's different cards css  //////////////////////// */
+
+
+        .brand_name {
+
+            margin-bottom: -20px;
+            font-weight: 900;
+            color: black !important;
+        }
+
+        .brand_name_sec {
+
+            margin-bottom: -20px;
+            font-weight: bolder;
+            color: black !important;
+        }
+
+        .brand_name_thr {
+
+            margin-bottom: -20px;
+            font-weight: bolder;
+            color: black !important;
+        }
+
+        .brand_name_for {
+
+            margin-bottom: -20px;
+            font-weight: bolder;
+            color: black !important;
+        }
+
+
+        .footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 40px 20px 10px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 15px;
+        }
+
+        .footer-section h3,
+        .footer-section h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-section .newsletter input[type="email"] {
+            padding: 10px;
+            width: 70%;
+            margin-right: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .footer-section .newsletter button {
+            padding: 10px 15px;
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .footer-section .social-icons a img {
+            width: 24px;
+            margin: 10px 5px 0 0;
+            filter: grayscale(1);
+            transition: filter 0.3s;
+        }
+
+        .footer-section .social-icons a img:hover {
+            filter: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">E-Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+    
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="cart.php">
+                            🛒 Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </li>
+
+
+
+
+                    <?php if (isset($_SESSION["user_id"])): ?>
+                        <li class="nav-item"><a class="nav-link" href="./auth/view.php">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./auth/logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link" href="./auth/login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./auth/register.php">Register</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="navvv">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown m-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Womens Ethnic
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="Sarees.php">Sarees</a></li>
+                                <li><a class="dropdown-item" href="Kurtis.php">Kurtis</a></li>
+                                <li><a class="dropdown-item" href="Lehenga.php">Lehenga Choli</a></li>
+                                <li><a class="dropdown-item" href="Kurta_sets.php">Kurta set</a></li>
+                                <li><a class="dropdown-item" href="Suits.php">Suits & Dress Material</a></li>
+                                <li><a class="dropdown-item" href="Islamic_fas.php">Islamic</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="Jewellary.php">Jewellery</a></li>
+                        </li>
+
+                    </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mens
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Top_w_m.php">Top Wear</a></li>
+                            <li><a class="dropdown-item" href="Bottom_w_m.php">Bottom Wear</a></li>
+                            <li><a class="dropdown-item" href="Men_as.php">Men Accessories</a></li>
+                            <li><a class="dropdown-item" href="Ethnic.php">Ethnic Wear</a></li>
+                            <li><a class="dropdown-item" href="Inner.php">Inner & Sleep Wear</a></li>
+                            <li><a class="dropdown-item" href="Men_foo.php">Men Footwear </a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Kids
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Babys.php">Boys & Girls 2+ Years</a></li>
+                            <li><a class="dropdown-item" href="Infant.php">Infant 0-2 Years</a></li>
+                            <li><a class="dropdown-item" href="Assessories.php">Accessories</a></li>
+                            <li><a class="dropdown-item" href="Baby_care.php">Baby Care</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Home & Kitchen
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Kitchen.php">Kitchen & Appliances</a></li>
+                            <li><a class="dropdown-item" href="Home.php">Home Furnishing</a></li>
+                            <li><a class="dropdown-item" href="Ho_decor.php">Home Decor</a></li>
+                            <li><a class="dropdown-item" href="Dining.php">Kitchen & Dining</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Beauty
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Make_up.php">Make Up</a></li>
+                            <li><a class="dropdown-item" href="Skin.care.php">SkinCare</a></li>
+                            <li><a class="dropdown-item" href="B_mom.php">Baby & Mom</a></li>
+                            <li><a class="dropdown-item" href="Mens_care.php">MensCare</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bags
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Hand_bags.php">Hand Bags</a></li>
+                            <li><a class="dropdown-item" href="School_bags.php">School Bags</a></li>
+                            <li><a class="dropdown-item" href="Sling_bags.php">Sling Bags</a></li>
+                            <li><a class="dropdown-item" href="Backpacks.php">Backpacks</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="Waist_bag.php">Waist Bags</a></li>
+                    </li>
+
+                    </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronic
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Headphones.php">Headphones</a></li>
+                            <li><a class="dropdown-item" href="Speakers.php">Speakers</a></li>
+                            <li><a class="dropdown-item" href="Smart_wa.php">Smartwatches</a></li>
+                            <li><a class="dropdown-item" href="Mobile_ho.php">Mobile Holders</a></li>
+                            <li><a class="dropdown-item" href="Mobil_cha.php">Mobile Chargers</a></li>
+                            <li><a class="dropdown-item" href="Mobile_co.php">Mobile cases and covers</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="Smart_we.php">Smart Wearables</a></li>
+                    </li>
+
+                    </ul>
+                    </li>
+
+                    <li class="nav-item dropdown m-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Footwear
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Men_foo.php">Men Footwear</a></li>
+                            <li><a class="dropdown-item" href="wome_fo.php">Womens Footwear</a></li>
+                            <li><a class="dropdown-item" href="Kids_foo.php">Kids Footwear</a></li>
+
+
+
+                        </ul>
+                    </li>
+
+
+
+                    </ul>
+
+        </nav>
+    </div>
+
+
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href=""><img src="../E-com_project/images/Slider/Cleaning_Vaccum.jpg" class="d-block w-100" alt="Cleaning_Vaccum"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="../E-com_project/images/Slider/beatuy001.png" class="d-block w-100" alt="Hero_Asin-toys"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="../E-com_project/images/Slider/smartwatch.jpg" class="d-block w-100" alt="Pump-with"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="../E-com_project/images/Slider/waall.jpg" class="d-block w-100" alt="waall"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="../E-com_project/images/Slider/shadi_shop.jpg" class="d-block w-100" alt="shadi_shop"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="../E-com_project/images/Slider/footwear.jpg" class="d-block w-100" alt="Shampoos__conditioners"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="../E-com_project/images/Slider/clothes_man.jpg" class="d-block w-100" alt="clothes_man"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="../E-com_project/images/Slider/smartphone.jpg" class="d-block w-100" alt="smartphone"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="../E-com_project/images/Slider/Shampoos__conditioners.png" class="d-block w-100" alt="smartwatch"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <!-- first combo cards images -->
+
+    <div class="best">
+
+        <div class="firstt-card">
+
+            <div class="brand_name">
+                <h4>Up to 60% off | Styles <br>for Womens</h3>
+            </div>
+            <div class="image-firstt-container">
+                <!-- Image 1 -->
+                <a href="./Kurtis.php">
+                    <img src="../E-com_project/images/women/womens_clothes_01.jpg" alt="Image 1">
+                </a>
+
+                <!-- Image 2 -->
+                <a href="./Kurta_sets.php">
+                    <img src="../E-com_project/images/women/womens_clothes_02.jpg" alt="Image 2">
+                </a>
+                <!-- Image 3 -->
+                <a href="./Kurtis.php">
+                    <img src="../E-com_project/images/women/womens_clothes_03.jpg" alt="Image 3">
+                </a>
+                <!-- Image 4 -->
+                <a href="./Suits.php">
+                    <img src="../E-com_project/images/women/women_clothes_05.jpg" alt="Image 4">
+                </a>
+            </div>
+        </div>
+
+
+        <!-- second combo cards images -->
+
+        <div class="seco-card">
+            <div class="brand_name_sec">
+                <h3>Continue shopping <br> with best deals </h3>
+            </div>
+            <div class="image-seco-container">
+                <!-- Image 1 -->
+                <a href="./Smart_wa.php">
+                    <img src="../E-com_project/images/smart-s/watches/wa1.jpg" alt="Image 1">
+                </a>
+                <!-- Image 2 -->
+                <a href="./Smart_wa.php">
+                    <img src="../E-com_project/images/smart-s/watches/wa2.jpg" alt="Image 2">
+                </a>
+                <!-- Image 3 -->
+                <a href="./Mobile_ho.php">
+                    <img src="../E-com_project/images/smart-s/watches/hol1.jpg" alt="Image 3">
+                </a>
+                <!-- Image 4 -->
+                <a href="./Mobile_ho.php">
+                    <img src="../E-com_project/images/smart-s/watches/hol2.jpg" alt="Image 4">
+                </a>
+            </div>
+        </div>
+
+        <!-- third combo cards images  -->
+
+        <div class="three-card">
+            <div class="brand_name_thr">
+                <h4>Up to 60% off | Styles <br>for Mens</h3>
+            </div>
+            <div class="image-three-container">
+                <!-- Image 1 -->
+                <a href="./Top_w_m.php">
+                    <img src="../E-com_project/images/Mens/Tshirts_01.jpg" alt="Image 1">
+                </a>
+                <!-- Image 2 -->
+                <a href="./Top_w_m.php">
+                    <img src="../E-com_project/images/Mens/Casual_shirts_02.jpg" alt="Image 2">
+                </a>
+                <!-- Image 3 -->
+                <a href="./Bottom_w_m.php">
+                    <img src="../E-com_project/images/Mens/JEANS_03.jpg" alt="Image 3">
+                </a>
+                <!-- Image 4 -->
+                <a href="./Top_w_m.php">
+                    <img src="../E-com_project/images/Mens/Polos_04.jpg" alt="Image 4">
+                </a>
+            </div>
+        </div>
+
+        <!-- four combo cards images -->
+
+        <div class="four-card">
+
+            <div class="brand_name_for">
+                <h4>Starting ₹199 |E-Shop <br>Brands & more</h4>
+            </div>
+            <div class="image-four-container">
+                <!-- Image 1 -->
+                <a href="./Home.php">
+                    <img src="../E-com_project/images/Kitchen/HOME_SIZE_Curtains.jpg" alt="Image 1">
+                </a>
+                <!-- Image 2 -->
+                <a href="./Kitchen.php">
+                    <img src="../E-com_project/images/Kitchen/backet.jpg" alt="Image 2">
+                </a>
+                <!-- Image 3 -->
+                <a href="./Kitchen.php">
+                    <img src="../E-com_project/images/Kitchen/fruit_backet.jpg" alt="Image 3">
+                </a>
+                <!-- Image 4 -->
+                <a href="./Make_up.php">
+                    <img src="../E-com_project/images/others/baggs.jpg" alt="Image 4">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 22222222222 products cards 222222222222222 -->
+
+
+
+    <div class="product-grid">
+        <div class="product-card">
+            <a href="./Kurtis.php"><img src="../E-com_project/images/women/Tops_tunics.webp" alt="Product Image"></a>
+            <h4 class="product-title">Top & Tunics</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹257</span>
+                <span class="original-price">₹499</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="1"
+                data-name="Top & Tunics"
+                data-price="257">
+                Add to Cart
+            </button>
+
+        </div>
+
+        <div class="product-card">
+            <a href="./Mobile_ho.php"><img src="../E-com_project/images/smart-s/Moblie_holders.webp" alt="Product Image"></a>
+            <h4 class="product-title">Mobile Holders</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹113</span>
+                <span class="original-price">₹299</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="2"
+                data-name="Mobile Holders"
+                data-price="113">
+                Add to Cart
+            </button>
+
+        </div>
+
+        <div class="product-card">
+            <a href="./Top_w_m.php"><img src="../E-com_project/images/Mens/Trendy_retro.webp" alt="Product Image"></a>
+            <h4 class="product-title">Trendy Retro Men Shirts</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹141</span>
+                <span class="original-price">₹299</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="3"
+                data-name="Trendy Retro Men Shirts"
+                data-price="141">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Babys.php"><img src="../E-com_project/images/Kids/Flawsome_trendy.webp" alt="Product Image"></a>
+            
+            <h4 class="product-title">Flawsome Trendy Kids...</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹154</span>
+                <span class="original-price">₹359</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="4"
+                data-name="Flawsome Trendy Kids..."
+                data-price="154">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Sarees.php"><img src="../E-com_project/images/women/sarees/Aishani01.webp" alt="Product Image"></a>
+            <h4 class="product-title">Men's Casual T-Shirt</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹499</span>
+                <span class="original-price">₹999</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="5"
+                data-name="Men's Casual T-Shirt"
+                data-price="499">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Mobile_co.php"><img src="../E-com_project/images/smart-s/Phone_covers.webp" alt="Product Image"></a>
+            <h4 class="product-title">Apple Iphone 13 covers</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹257</span>
+                <span class="original-price">₹350</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="6"
+                data-name="Apple Iphone 13 covers"
+                data-price="257">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Babys.php"><img src="../E-com_project/images/kids/Tinkl_trendy.webp" alt="Product Image"></a>
+            <h4 class="product-title">Tinkle Trendy Girls Frock</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹167</span>
+                <span class="original-price">₹220</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="7"
+                data-name="Tinkle Trendy Girls Frock"
+                data-price="167">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+
+        <div class="product-card">
+            <a href="./Kitchen.php"><img src="../E-com_project/images/Kitchen/Classic_Peelers.webp" alt="Product Image"></a>
+            <h4 class="product-title">Classic Peelers</h4>
+            <div class="price-box">
+                <span class="discount-price">₹124</span>
+                <span class="original-price">₹225</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="8"
+                data-name="Classic Peelers"
+                data-price="124">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Top_w_m.php"><img src="../E-com_project/images/Mens/STI_mens.webp" alt="Product Image"></a>
+            <h4 class="product-title">SIT Men's Shirts</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹212</span>
+                <span class="original-price">₹999</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="9"
+                data-name="SIT Men's Shirts"
+                data-price="212">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Jewellary.php"><img src="../E-com_project/images/jwellery/feminine_chunky.webp" alt="Product Image"></a>
+            <h4 class="product-title">Feminine Chunky Jewell..</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹499</span>
+                <span class="original-price">₹999</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="10"
+                data-name="Feminine Chunky Jewell.."
+                data-price="499">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Jewellary.php"><img src="../E-com_project/images/jwellery/Unique_earrings.webp" alt="Product Image"></a>
+            <h4 class="product-title">Unique Earrings</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹169</span>
+                <span class="original-price">₹999</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★☆☆ <span>(3.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="11"
+                data-name="Unique Earrings"
+                data-price="169">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Top_w_m.php"><img src="../E-com_project/images/Mens/Classy_elegant.webp" alt="Product Image"></a>
+            <h4 class="product-title">Classy Elegant Men's</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹262</span>
+                <span class="original-price">₹999</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="12"
+                data-name="Classy Elegant Men's"
+                data-price="262">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Kurta_sets.php"><img src="../E-com_project/images/Women/Aagam_fashi.webp" alt="Product Image"></a>
+            <h4 class="product-title">Aagam Fashionable Wom..</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹577</span>
+                <span class="original-price">₹999</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="13"
+                data-name="Aagam Fashionable Wom.."
+                data-price="577">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Men_foo.php"><img src="../E-com_project/images/Mens_foot/Bride_sports.webp" alt="Product Image"></a>
+            <h4 class="product-title">Bride Sports Shoes</h4>
+            <div class="price-box">
+                <span class="discount-price">₹497</span>
+                <span class="original-price">₹999</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="14"
+                data-name="Bride Sports Shoes"
+                data-price="497">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+            <a href="./Ho_decor.php"><img src="../E-com_project/images/Kitchen/Styles_fridge_cover.webp" alt="Product Image"></a>
+            <h4 class="product-title">Styles Fridge Cover</h4>
+
+            <div class="price-box">
+                <span class="discount-price">₹124</span>
+                <span class="original-price">₹999</span>
+            </div>
+            <p class="delivery">Free Delivery</p>
+            <div class="rating">★★★★☆ <span>(4.2)</span></div>
+            <button class="btn-buy add-to-cart"
+                data-id="15"
+                data-name="Styles Fridge Cover"
+                data-price="124">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ************************************************************************* -->
+
+
+
+
+    <!-- Footer -->
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Mens</h2>
+                <p>Your one-stop shop for all your needs. Trusted by thousands worldwide.</p>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section support">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="/faq">FAQs</a></li>
+                    <li><a href="/returns">Returns</a></li>
+                    <li><a href="/shipping">Shipping</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#"><img src="twitter-icon.svg" alt="Twitter"></a>
+                    <a href="#"><img src="instagram-icon.svg" alt="Instagram"></a>
+                    <a href="#"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 ShopMate. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        (function setResponsiveBreakpoint(window, document) {
+            const container = document.querySelector('.best');
+            const BREAKPOINT = 1239;
+
+            function applyBreakpoint() {
+                const width = window.innerWidth;
+                const breakpoint = width <= BREAKPOINT ? 'sm' : 'ws';
+                if (container) {
+                    container.setAttribute('data-grid-breakpoint', breakpoint);
+                }
+            }
+
+            // Apply on load
+            document.addEventListener('DOMContentLoaded', applyBreakpoint);
+
+            // Apply on resize
+            window.addEventListener('resize', applyBreakpoint);
+        })(window, document);
+    </script>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+        <!-- ********* cart ******************** -->
+
+
+<script>
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+    // Load and save cart
+    function loadCart() {
+        return JSON.parse(localStorage.getItem("cart")) || [];
+    }
+
+    function saveCart(cart) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function updateCartCount() {
+        const cart = loadCart();
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById("cart-count").textContent = count;
+    }
+
+    // Add product
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const product = {
+                id: button.dataset.id,
+                name: button.dataset.name,
+                price: parseFloat(button.dataset.price),
+            };
+
+            const cart = loadCart();
+            const existing = cart.find(item => item.id === product.id);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+
+            saveCart(cart);
+            updateCartCount();
+            alert(`${product.name} added to cart!`);
+        });
+    });
+
+    // Show count on load
+    updateCartCount();
+</script>
+
+
+
+
+
+
+</html>
