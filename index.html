@@ -578,7 +578,7 @@ session_start();
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">E-Shop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -609,7 +609,55 @@ session_start();
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">E-Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="cart.html">
+                        🛒 Cart (<span id="cart-count">0</span>)
+                    </a>
+                </li>
+
+                <span id="auth-links"></span>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    // simulate session using localStorage
+    const userLoggedIn = localStorage.getItem("user_id"); 
+
+    const authLinks = document.getElementById("auth-links");
+
+    if (userLoggedIn) {
+        authLinks.innerHTML = `
+            <li class="nav-item"><a class="nav-link" href="./auth/view.php">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
+        `;
+    } else {
+        authLinks.innerHTML = `
+            <li class="nav-item"><a class="nav-link" href="./auth/login.php">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="./auth/register.php">Register</a></li>
+        `;
+    }
+
+    function logout() {
+        localStorage.removeItem("user_id");
+        location.reload();
+    }
+</script>
+
 
     <div class="navvv">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -763,7 +811,7 @@ session_start();
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <!-- <a href=""><img src="./images/Slider/Cleaning_Vaccum.jpg" class="d-block w-100" alt="Cleaning_Vaccum"></a> -->
+                <!-- <a href=""><img src="./images/ Slider/Cleaning_Vaccum.jpg" class="d-block w-100" alt="Cleaning_Vaccum"></a> -->
                 <a href=""><img src="./images/Slider/Cleaning_Vaccum.jpg" class="d-block w-100" alt="Cleaning_Vaccum"></a>
                 <div class="carousel-caption d-none d-md-block">
                 </div>

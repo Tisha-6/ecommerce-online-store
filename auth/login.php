@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user["password"])) {
             $_SESSION["user_id"] = $user["id"];
             $_SESSION["user_name"] = $user["name"];
-            header("Location: ../index.php");
+            header("Location: ../index.html");
             exit();
         } else {
             $error = "Invalid password!";
@@ -205,15 +205,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.php">E-Shop</a>
+            <a class="navbar-brand" href="index.html">E-Shop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="../index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="products.php">Products</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="../index.html">Home</a></li>
+                    
 
                     <?php if (isset($_SESSION["user_id"])): ?>
                         <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
