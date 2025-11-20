@@ -7,7 +7,7 @@
     <title>Online Store | Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="./Womens.php">
+    <!-- <link rel="stylesheet" href="./Womens.php"> -->
 
     <style>
         body {
@@ -442,51 +442,53 @@
     </nav> -->
 
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">E-Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">E-Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
 
-                    <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="cart.html">
-                            🛒 Cart (<span id="cart-count">0</span>)
-                        </a>
-                    </li>
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
 
-                    <span id="auth-links"></span>
-                </ul>
-            </div>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="cart.html">
+                        🛒 Cart (<span id="cart-count">0</span>)
+                    </a>
+                </li>
+
+                <!-- IMPORTANT: use a list container -->
+                <span id="auth-links" class="d-flex"></span>
+
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <script>
-        // simulate session using localStorage
-        const userLoggedIn = localStorage.getItem("user_id");
+<script>
+    const userLoggedIn = localStorage.getItem("user_id");
+    const authLinks = document.getElementById("auth-links");
 
-        const authLinks = document.getElementById("auth-links");
-
-        if (userLoggedIn) {
-            authLinks.innerHTML = `
-            <li class="nav-item"><a class="nav-link" href="./auth/view.php">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
+    if (userLoggedIn) {
+        authLinks.innerHTML = `
+            <li class="nav-item"><a class="nav-link text-white" href="./auth/view.php">Profile</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#" onclick="logout()">Logout</a></li>
         `;
-        } else {
-            authLinks.innerHTML = `
-            <li class="nav-item"><a class="nav-link" href="./auth/login.html">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="./auth/register.html">Register</a></li>
+    } else {
+        authLinks.innerHTML = `
+            <li class="nav-item"><a class="nav-link text-white" href="./auth/login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="./auth/register.html">Register</a></li>
         `;
-        }
+    }
 
-        function logout() {
-            localStorage.removeItem("user_id");
-            location.reload();
-        }
-    </script>
+    function logout() {
+        localStorage.removeItem("user_id");
+        location.reload();
+    }
+</script>
+
 
 
 
@@ -642,21 +644,7 @@
                         </ul>
                     </li>
 
-                    <!-- <li class="nav-item dropdown m-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="Womens.php">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </li>
-
-                    </ul>
-                    </li> -->
-
+                  
                     </ul>
         </nav>
     </div>

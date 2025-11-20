@@ -616,7 +616,8 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-               
+
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
 
                 <li class="nav-item">
                     <a class="nav-link text-white" href="cart.html">
@@ -624,27 +625,27 @@
                     </a>
                 </li>
 
-                <span id="auth-links"></span>
+                <!-- IMPORTANT: use a list container -->
+                <span id="auth-links" class="d-flex"></span>
+
             </ul>
         </div>
     </div>
 </nav>
 
 <script>
-    // simulate session using localStorage
-    const userLoggedIn = localStorage.getItem("user_id"); 
-
+    const userLoggedIn = localStorage.getItem("user_id");
     const authLinks = document.getElementById("auth-links");
 
     if (userLoggedIn) {
         authLinks.innerHTML = `
-            <li class="nav-item"><a class="nav-link" href="./auth/view.php">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="./auth/view.php">Profile</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#" onclick="logout()">Logout</a></li>
         `;
     } else {
         authLinks.innerHTML = `
-            <li class="nav-item"><a class="nav-link" href="./auth/login.html">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="./auth/register.html">Register</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="./auth/login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="./auth/register.html">Register</a></li>
         `;
     }
 
@@ -653,6 +654,7 @@
         location.reload();
     }
 </script>
+
 
 
     <div class="navvv">
