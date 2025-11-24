@@ -262,11 +262,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 
-<body>
+<body>-->
 
 
 
-    <!-- Navbar -->
+    <!-- Navbar  -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html">E-Shop</a>
@@ -278,7 +278,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item"><a class="nav-link text-white" href="../index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="products.html">Products</a></li>
+                    
 
                     <?php if (isset($_SESSION["user_id"])): ?>
                         <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
@@ -324,8 +324,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- </body>
+ </body>
 
-</html> -->
+</html> 
 
 

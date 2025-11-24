@@ -1,0 +1,22 @@
+<script src="products.js">
+</script>
+
+
+
+
+<script>
+    const url = new URLSearchParams(window.location.search);
+    const id = url.get("id");
+    const p = PRODUCTS[id];
+
+    document.getElementById("productImg").src = p.img;
+    document.getElementById("productName").textContent = p.name;
+    document.getElementById("productPrice").textContent = "₹" + p.price;
+    document.getElementById("productOldPrice").textContent = "₹" + p.oldPrice;
+    document.getElementById("productRating").textContent = "⭐ " + p.rating;
+    document.getElementById("productFabric").textContent = "Fabric: " + p.fabric;
+    document.getElementById("productColor").textContent = "Color: " + p.color;
+</script>
+
+</body>
+</html>
