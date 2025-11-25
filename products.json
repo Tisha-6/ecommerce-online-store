@@ -1,0 +1,26 @@
+{
+  "101": {
+    "title": "Jivika Fabulous Kurti",
+    "price": "383",
+    "original_price": "429",
+    "discount": "22",
+    "rating": "4",
+    "fabric": "cotton",
+    "color": "blue",
+    "gender": "women",
+    "image": "./images/kids/wimom/1.avif",
+    "description": "Beautiful cotton kurti suitable for daily wear."
+  },
+  "102": {
+    "title": "Blue Winter Jacket",
+    "price": "1120",
+    "original_price": "1499",
+    "discount": "28",
+    "rating": "4.5",
+    "fabric": "wool",
+    "color": "blue",
+    "gender": "men",
+    "image": "./images/jackets/blue.jpg",
+    "description": "Warm and comfortable winter jacket."
+  }
+}

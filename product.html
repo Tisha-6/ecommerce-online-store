@@ -1,0 +1,27 @@
+<div id="product-data-storage" style="display:none;">
+    <!-- JS will automatically fill this -->
+</div>
+
+<script>
+    // Store all product info in hidden div
+    const cards = document.querySelectorAll(".product-card");
+    let storage = document.getElementById("product-data-storage");
+
+    cards.forEach(card => {
+        let id = card.dataset.id;
+        storage.innerHTML += `
+            <div id="product-${id}"
+                data-title="${card.dataset.title}"
+                data-price="${card.dataset.price}"
+                data-original="${card.dataset.original}"
+                data-discount="${card.dataset.discount}"
+                data-rating="${card.dataset.rating}"
+                data-fabric="${card.dataset.fabric}"
+                data-color="${card.dataset.color}"
+                data-gender="${card.dataset.gender}"
+                data-image="${card.dataset.image}"
+                data-description="${card.dataset.description}">
+            </div>
+        `;
+    });
+</script>
